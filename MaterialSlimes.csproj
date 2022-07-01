@@ -73,6 +73,7 @@
     <Compile Include="Extensions.cs" />
     <Compile Include="Slimes\GlassSlime.cs" />
     <Compile Include="Slimes\GlueSlime.cs" />
+    <Compile Include="Slimes\LightSlime.cs" />
     <Compile Include="Slimes\MetalSlime.cs" />
     <Compile Include="Slimes\PlasticSlime.cs" />
     <Compile Include="Slimes\SelfDiscoverySlime.cs" />
