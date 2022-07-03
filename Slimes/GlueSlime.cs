@@ -27,8 +27,8 @@ namespace GlueSlime
         public static (SlimeDefinition, GameObject) CreateSlime(Identifiable.Id SlimeId, String SlimeName)
         {
             // DEFINE
-            SlimeDefinition puddleSmileDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.PUDDLE_SLIME);
-            SlimeDefinition slimeDefinition = (SlimeDefinition)PrefabUtils.DeepCopyObject(puddleSmileDefinition);
+            SlimeDefinition puddleSlimeDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.PUDDLE_SLIME);
+            SlimeDefinition slimeDefinition = (SlimeDefinition)PrefabUtils.DeepCopyObject(puddleSlimeDefinition);
             slimeDefinition.AppearancesDefault = new SlimeAppearance[1];
             slimeDefinition.Diet.Produces = new Identifiable.Id[1]
             {
@@ -64,7 +64,7 @@ namespace GlueSlime
             // UnityEngine.Object.Destroy(slimeObject.GetComponent<SlimeEatWater>());
             UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
             // APPEARANCE
-            SlimeAppearance slimeAppearance = (SlimeAppearance)PrefabUtils.DeepCopyObject(puddleSmileDefinition.AppearancesDefault[0]);
+            SlimeAppearance slimeAppearance = (SlimeAppearance)PrefabUtils.DeepCopyObject(puddleSlimeDefinition.AppearancesDefault[0]);
             slimeDefinition.AppearancesDefault[0] = slimeAppearance;
             SlimeAppearanceStructure[] structures = slimeAppearance.Structures;
             foreach (SlimeAppearanceStructure slimeAppearanceStructure in structures)

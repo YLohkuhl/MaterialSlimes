@@ -1,4 +1,5 @@
-﻿using SRML.SR;
+﻿// using Behaviours;
+using SRML.SR;
 using SRML.Utils;
 using System;
 using System.Collections.Generic;
@@ -76,6 +77,7 @@ namespace SelfDiscoverySlime
             slimeObject.GetComponent<Identifiable>().id = ModdedIds.discoveryIds.DISCOVERY_SLIME;
             // slimeObject.AddComponent<GoldSlimeFlee>();
             slimeObject.AddComponent<SlimeHover>();
+            // slimeObject.AddComponent<MaterialDecay>();
             UnityEngine.Object.Destroy(slimeObject.GetComponent<FleeThreats>());
             UnityEngine.Object.Destroy(slimeObject.GetComponent<GoldSlimeProducePlorts>());
             UnityEngine.Object.Destroy(slimeObject.GetComponent<GoldSlimeFlee>());
