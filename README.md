@@ -1,6 +1,6 @@
 ﻿# MaterialSlimes
 
-Material Slimes is basically an extension mod to **Glue Slimes**﻿! This adds in 6+ new slimes which are based off of Materials! Plastic, Wood, Glass, etc. Walk among the Slime Rancher world with Material Slimes roaming it!
+Material Slimes is basically an extension mod to **Glue Slimes**﻿! This adds in 12+ new slimes which are based off of Materials! Plastic, Wood, Glass, etc. Walk among the Slime Rancher world with Material Slimes roaming it!
 
 NOTE: Please uninstall Glue Slimes if you have it installed while playing this. This mod adds in the Glue Slime with better spawning, etc.
 
@@ -56,7 +56,7 @@ NOTE: Please uninstall Glue Slimes if you have it installed while playing this. 
 ![Darkoutbreak1](darkoutbreak1.png)
 *Here is an example if it goes even further with the process:*
 ![Darkoutbreak2](darkoutbreak2.png)
-Possibly more slimes to be added in the future! Also, Tarrs will not eat any of the Material Slimes.. as of now. Although, they will still run away from them.. besides the Self Discovery Slime. They will go towards it for food, and once it is satisfied it will just jump around happily as if its all fine.
+Possibly more slimes to be added in the future! Also, Tarrs will not eat any of the Material Slimes.. as of now. Although, they will still run away from them.. some of them won't do so!
 
 ## Special Thanks
 
