@@ -7,13 +7,16 @@ NOTE: Please uninstall Glue Slimes if you have it installed while playing this. 
 ## About the mod
 
 **Spawning List (All of these are converted based on its code, can't promise 100% accurate.):**
+
 **-- Common --**
+
 1. *Wood Slimes - 50% - Spawns in the Reef.*
 2. *Glue Slimes - 30% - Spawns in the Reef.*
 3. *Concrete Slimes - 20% - Spawns in the Ruins & Wilds.*
 4. *Cotton Slimes - 20% - Spawns in the Moss Blanket & Reef.*
 
 **-- Semi-Common --**
+
 5. *Copper Slimes - 15% - Spawns in the Wilds.*
 6. *Ice Slimes - 12% - Spawns in the Indigo Quarry & Moss Blanket.*
 7. *Glass Slimes - 10% - Spawns in the Glass Desert.*
