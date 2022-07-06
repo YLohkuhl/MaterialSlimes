@@ -37,6 +37,9 @@
     <Reference Include="Assembly-CSharp_old">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\Assembly-CSharp_old.dll</HintPath>
     </Reference>
+    <Reference Include="LargoLibrary">
+      <HintPath>..\..\..\..\Downloads\Largo Library 1.6.7-105-1-6-7-1647997990\LargoLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleSRmodLibrary">
       <HintPath>..\..\..\..\Downloads\SimpleSRmodLibrary-220-3-0-1653945318\SimpleSRmodLibrary.dll</HintPath>
     </Reference>
@@ -57,22 +60,38 @@
     <Reference Include="UnityEngine.ImageConversionModule">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.PhysicsModule">
+    <Reference Include="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Behaviours\BetterSlimeFlee.cs" />
+    <Compile Include="Behaviours\BetterSlimeHover.cs" />
+    <Compile Include="Behaviours\MaterialDecay.cs" />
     <Compile Include="ModEntryPoint.cs" />
     <Compile Include="ModdedIds.cs" />
-    <Compile Include="Patches.cs" />
+    <None Include="Other\SecretStylesDesigns.cs" />
+    <Compile Include="Other\Patches.cs" />
+    <Compile Include="Plorts\ConcreteSlimePlort.cs" />
+    <Compile Include="Plorts\IceSlimePlort.cs" />
+    <Compile Include="Plorts\CopperSlimePlort.cs" />
     <Compile Include="Plorts\GlassSlimePlort.cs" />
+    <Compile Include="Plorts\CottonSlimePlort.cs" />
     <Compile Include="Plorts\GlueSlimePlort.cs" />
+    <Compile Include="Plorts\LightSlimePlort.cs" />
     <Compile Include="Plorts\PlasticSlimePlort.cs" />
     <Compile Include="Plorts\WoodSlimePlort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extensions.cs" />
+    <Compile Include="Other\Extensions.cs" />
+    <None Include="Other\SecretStyles.cs" />
+    <Compile Include="Slimes\ConcreteSlime.cs" />
+    <Compile Include="Slimes\IceSlime.cs" />
+    <Compile Include="Slimes\CopperSlime.cs" />
+    <Compile Include="Slimes\CottonSlime.cs" />
     <Compile Include="Slimes\GlassSlime.cs" />
     <Compile Include="Slimes\GlueSlime.cs" />
+    <Compile Include="Slimes\DarkSlime.cs" />
     <Compile Include="Slimes\LightSlime.cs" />
     <Compile Include="Slimes\MetalSlime.cs" />
     <Compile Include="Slimes\PlasticSlime.cs" />
@@ -110,6 +129,39 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\selfdiscovery_slime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\light_slime.png" />
+    <EmbeddedResource Include="Assets\light_slime_plort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\concrete_slime.png" />
+    <EmbeddedResource Include="Assets\concrete_slime_plort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Plans.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\dark_slime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\cotton_slime_plort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\cotton_slime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\copper_slime_plort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\copper_slime.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\ice_slime.png" />
+    <EmbeddedResource Include="Assets\ice_slime_plort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Textures\white_texture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />

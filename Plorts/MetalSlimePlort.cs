@@ -18,7 +18,7 @@ namespace MetalSlime
             Prefab.name = "Metal Plort";
 
             Prefab.GetComponent<Identifiable>().id = ModdedIds.metalIds.METAL_PLORT;
-            Prefab.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
+            Prefab.GetComponent<Vacuumable>().size = Vacuumable.Size.LARGE;
 
             Prefab.GetComponent<MeshRenderer>().material = Object.Instantiate<Material>(Prefab.GetComponent<MeshRenderer>().material);
             Color MetalColor = Color.grey; // RGB   

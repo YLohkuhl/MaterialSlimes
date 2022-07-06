@@ -54,4 +54,56 @@ namespace ModdedIds
 
         public static readonly PediaDirector.Id DISCOVERY_ENTRY;
     }
+    [EnumHolder]
+    internal class lightIds
+    {
+        public static readonly Identifiable.Id LIGHT_SLIME;
+
+        public static readonly Identifiable.Id LIGHT_PLORT;
+
+        public static readonly PediaDirector.Id LIGHT_ENTRY;
+    }
+    [EnumHolder]
+    internal class concreteIds
+    {
+        public static readonly Identifiable.Id CONCRETE_SLIME;
+
+        public static readonly Identifiable.Id CONCRETE_PLORT;
+
+        public static readonly PediaDirector.Id CONCRETE_ENTRY;
+    }
+    [EnumHolder]
+    internal class darkIds
+    {
+        public static readonly Identifiable.Id DARK_SLIME;
+
+        public static readonly PediaDirector.Id DARK_ENTRY;
+    }
+    [EnumHolder]
+    internal class cottonIds
+    {
+        public static readonly Identifiable.Id COTTON_SLIME;
+
+        public static readonly Identifiable.Id COTTON_PLORT;
+
+        public static readonly PediaDirector.Id COTTON_ENTRY;
+    }
+    [EnumHolder]
+    internal class copperIds
+    {
+        public static readonly Identifiable.Id COPPER_SLIME;
+
+        public static readonly Identifiable.Id COPPER_PLORT;
+
+        public static readonly PediaDirector.Id COPPER_ENTRY;
+    }
+    [EnumHolder]
+    internal class iceIds
+    {
+        public static readonly Identifiable.Id ICE_SLIME;
+
+        public static readonly Identifiable.Id ICE_PLORT;
+
+        public static readonly PediaDirector.Id ICE_ENTRY;
+    }
 }

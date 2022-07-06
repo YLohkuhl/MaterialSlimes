@@ -1,0 +1,6 @@
+﻿[MATERIALSLIMES-2.0.0.0] (UPDATE)
+* 6+ New Slimes (Concrete, Light, Dark, Cotton, Copper, Ice.)
+* New Behaviours (Cotton's Slime Hover & Self Discovery's Material Decay (When Agitated))
+
+[MATERIALSLIMES-2.1.0.0] (SMALL UPDATE)
+* Glue Slimes & Plastic Slimes Largos (Testing Purposes)

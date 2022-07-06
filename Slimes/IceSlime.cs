@@ -1,5 +1,4 @@
-﻿// using Behaviours;
-using SRML.SR;
+﻿using SRML.SR;
 using SRML.Utils;
 using System;
 using System.Collections.Generic;
@@ -8,32 +7,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Random = System.Random;
 
-namespace SelfDiscoverySlime
+namespace IceSlime
 {
-    class SelfDiscoverySlime
+    class IceSlime
     {
-        /*public static Identifiable.Id RandomSlime()
-        {
-            var slimeArray = new Identifiable.Id[5]
-            {
-                // SLIME ARRAY \\
-                ModdedIds.glueIds.GLUE_SLIME,
-                ModdedIds.plasticIds.PLASTIC_SLIME,
-                ModdedIds.glassIds.GLASS_SLIME,
-                ModdedIds.metalIds.METAL_SLIME,
-                ModdedIds.woodIds.WOOD_SLIME
-                // SLIME ARRAY \\
-            };
-            Random random = new Random();
-            int randomIndex = random.Next(0, slimeArray.Length);
-            // int randomIndex = UnityEngine.Random.Range(0, slimeArray.Length);
-            var randomSlime = slimeArray[randomIndex];
-
-            return randomSlime;
-        }*/
-
         public static Texture2D LoadImage(string filename)
         {
             var a = Assembly.GetExecutingAssembly();
@@ -49,42 +27,38 @@ namespace SelfDiscoverySlime
         public static (SlimeDefinition, GameObject) CreateSlime(Identifiable.Id SlimeId, String SlimeName)
         {
             // DEFINE
-            SlimeDefinition goldSlimeDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.PINK_SLIME);
-            SlimeDefinition slimeDefinition = (SlimeDefinition)PrefabUtils.DeepCopyObject(goldSlimeDefinition);
+            SlimeDefinition boomSlimeDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.BOOM_SLIME);
+            SlimeDefinition slimeDefinition = (SlimeDefinition)PrefabUtils.DeepCopyObject(boomSlimeDefinition);
             slimeDefinition.AppearancesDefault = new SlimeAppearance[1];
             slimeDefinition.Diet.Produces = new Identifiable.Id[1]
             {
-                ModdedIds.woodIds.WOOD_SLIME
+                ModdedIds.iceIds.ICE_PLORT
             };
             slimeDefinition.Diet.MajorFoodGroups = new SlimeEat.FoodGroup[0];
-            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[2]
+            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[3]
             {
-                Identifiable.Id.KOOKADOBA_FRUIT,
-                Identifiable.Id.LEMON_FRUIT
+                Identifiable.Id.PUDDLE_PLORT,
+                Identifiable.Id.PUDDLE_SLIME,
+                Identifiable.Id.OCAOCA_VEGGIE
             };
             slimeDefinition.Diet.Favorites = new Identifiable.Id[0];
             slimeDefinition.Diet.EatMap?.Clear();
             slimeDefinition.CanLargofy = false;
             slimeDefinition.FavoriteToys = new Identifiable.Id[0];
-            slimeDefinition.Name = "Self Discovery Slime";
-            slimeDefinition.IdentifiableId = ModdedIds.discoveryIds.DISCOVERY_SLIME;
+            slimeDefinition.Name = "Ice Slime";
+            slimeDefinition.IdentifiableId = ModdedIds.iceIds.ICE_SLIME;
             // OBJECT
-            GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.GOLD_SLIME));
-            slimeObject.name = "slimeDiscovery";
+            GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PINK_SLIME));
+            slimeObject.name = "slimeIce";
             slimeObject.GetComponent<PlayWithToys>().slimeDefinition = slimeDefinition;
             slimeObject.GetComponent<SlimeAppearanceApplicator>().SlimeDefinition = slimeDefinition;
             slimeObject.GetComponent<SlimeEat>().slimeDefinition = slimeDefinition;
-            slimeObject.GetComponent<Identifiable>().id = ModdedIds.discoveryIds.DISCOVERY_SLIME;
-            // slimeObject.AddComponent<GoldSlimeFlee>();
-            slimeObject.AddComponent<SlimeHover>();
-            slimeObject.AddComponent<MaterialDecay>();
-            UnityEngine.Object.Destroy(slimeObject.GetComponent<FleeThreats>());
-            UnityEngine.Object.Destroy(slimeObject.GetComponent<GoldSlimeProducePlorts>());
-            UnityEngine.Object.Destroy(slimeObject.GetComponent<GoldSlimeFlee>());
-            UnityEngine.Object.Destroy(slimeObject.GetComponent<SlimeFlee>());
+            slimeObject.GetComponent<Identifiable>().id = ModdedIds.iceIds.ICE_SLIME;
+            slimeObject.AddComponent<DamagePlayerOnTouch>();
+            // UnityEngine.Object.Destroy(slimeObject.GetComponent<SlimeEatWater>());
             UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
             // APPEARANCE
-            SlimeAppearance slimeAppearance = (SlimeAppearance)PrefabUtils.DeepCopyObject(goldSlimeDefinition.AppearancesDefault[0]);
+            SlimeAppearance slimeAppearance = (SlimeAppearance)PrefabUtils.DeepCopyObject(boomSlimeDefinition.AppearancesDefault[0]);
             slimeDefinition.AppearancesDefault[0] = slimeAppearance;
             SlimeAppearanceStructure[] structures = slimeAppearance.Structures;
             foreach (SlimeAppearanceStructure slimeAppearanceStructure in structures)
@@ -92,11 +66,12 @@ namespace SelfDiscoverySlime
                 Material[] defaultMaterials = slimeAppearanceStructure.DefaultMaterials;
                 if (defaultMaterials != null && defaultMaterials.Length != 0)
                 {
-                    Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.PINK_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
-                    material.SetColor("_TopColor", new Color32(255, 153, 0, 255));
-                    material.SetColor("_MiddleColor", new Color32(255, 191, 94, 255));
-                    material.SetColor("_BottomColor", new Color32(255, 153, 0, 255));
-                    material.SetColor("_SpecColor", new Color32(255, 191, 94, 255));
+                    Material material = new Material(SceneContext.Instance.SlimeAppearanceDirector.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.BOOM_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+                    material.SetColor("_TopColor", Color.cyan);
+                    material.SetColor("_MiddleColor", Color.cyan);
+                    material.SetColor("_BottomColor", Color.cyan);
+                    material.SetColor("_SpecColor", Color.cyan);
+                    material.SetColor("_CrackColor", Color.white);
                     material.SetFloat("_Shininess", 1f);
                     material.SetFloat("_Gloss", 1f);
                     slimeAppearanceStructure.DefaultMaterials[0] = material;
@@ -123,15 +98,15 @@ namespace SelfDiscoverySlime
                     slimeExpressionFace.Eyes.SetColor("_EyeBlue", Color.white);
                 }
             }
-            slimeAppearance.Icon = CreateSprite(LoadImage("Assets.selfdiscovery_slime.png"));
+            slimeAppearance.Icon = CreateSprite(LoadImage("Assets.ice_slime.png"));
             slimeAppearance.Face.OnEnable();
             slimeAppearance.ColorPalette = new SlimeAppearance.Palette
             {
-                Top = new Color32(255, 204, 128, 255),
-                Middle = new Color32(255, 191, 94, 255),
-                Bottom = new Color32(255, 204, 128, 255)
+                Top = new Color32(165, 242, 243, 255),
+                Middle = Color.white,
+                Bottom = new Color32(165, 242, 243, 255)
             };
-            PediaRegistry.RegisterIdEntry(ModdedIds.discoveryIds.DISCOVERY_ENTRY, CreateSprite(LoadImage("Assets.selfdiscovery_slime.png")));
+            PediaRegistry.RegisterIdEntry(ModdedIds.iceIds.ICE_ENTRY, CreateSprite(LoadImage("Assets.ice_slime.png")));
             slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;
             return (slimeDefinition, slimeObject);
         }

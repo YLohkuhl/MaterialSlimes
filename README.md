@@ -22,7 +22,7 @@ NOTE: Please uninstall Glue Slimes if you have it installed while playing this. 
 6. *Self Discovery Slime - %2 - Spawns Everywhere.*
 
 **Slime Brief Description:**
-1. *Wood Slimes act like any other slime, they should be safe and the most common.**
+1. *Wood Slimes act like any other slime, they should be safe and the most common.*
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 2. *Glue Slimes are pretty normal as well, but they're alternate food sources could result to Pink Slimes or Pink Plorts. Explains why they spawn in the Reef.*
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
