@@ -163,6 +163,10 @@
   <ItemGroup>
     <None Include="Textures\white_texture.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="darkoutbreak1.png" />
+    <Content Include="darkoutbreak2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />
 </Project>
