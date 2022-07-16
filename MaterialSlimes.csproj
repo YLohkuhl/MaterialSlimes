@@ -69,103 +69,145 @@
     <None Include="Behaviours\BetterSlimeFlee.cs" />
     <Compile Include="Behaviours\BetterSlimeHover.cs" />
     <Compile Include="Behaviours\MaterialDecay.cs" />
+    <Compile Include="Gadgets\MaterialExtractor.cs" />
+    <Compile Include="Items\Fertilizer.cs" />
+    <Compile Include="Items\MaterialSqueeze.cs" />
+    <Compile Include="Other\GameIDs\GadgetIds.cs" />
+    <Compile Include="Other\OtherPlorts.cs" />
+    <Compile Include="Other\Eatmaps.cs" />
+    <Compile Include="Other\GameIDs\ItemIds.cs" />
+    <Compile Include="Other\GameIDs\LargoIds.cs" />
+    <Compile Include="LargoLibFunc.cs" />
     <Compile Include="ModEntryPoint.cs" />
-    <Compile Include="ModdedIds.cs" />
+    <Compile Include="Other\GameIDs\ModdedIds.cs" />
     <None Include="Other\SecretStylesDesigns.cs" />
+    <None Include="Other\Config.cs" />
+    <Compile Include="Other\GameIDs\OtherIds.cs" />
+    <Compile Include="Other\Fragments.cs" />
+    <Compile Include="Other\LoadPoints\LoadPoint.cs" />
+    <Compile Include="Other\LoadPoints\PostLoadPoint.cs" />
+    <Compile Include="Other\LoadPoints\PreloadPoint.cs" />
     <Compile Include="Other\Patches.cs" />
-    <Compile Include="Plorts\ConcreteSlimePlort.cs" />
-    <Compile Include="Plorts\IceSlimePlort.cs" />
-    <Compile Include="Plorts\CopperSlimePlort.cs" />
-    <Compile Include="Plorts\GlassSlimePlort.cs" />
-    <Compile Include="Plorts\CottonSlimePlort.cs" />
-    <Compile Include="Plorts\GlueSlimePlort.cs" />
-    <Compile Include="Plorts\LightSlimePlort.cs" />
-    <Compile Include="Plorts\PlasticSlimePlort.cs" />
-    <Compile Include="Plorts\WoodSlimePlort.cs" />
+    <Compile Include="Slimes\Concrete Slime\ConcreteSlimePlort.cs" />
+    <Compile Include="Slimes\Ice Slime\IceSlimePlort.cs" />
+    <Compile Include="Slimes\Copper Slime\CopperSlimePlort.cs" />
+    <Compile Include="Slimes\Glass Slime\GlassSlimePlort.cs" />
+    <Compile Include="Slimes\Cotton Slime\CottonSlimePlort.cs" />
+    <Compile Include="Slimes\Glue Slime\GlueSlimePlort.cs" />
+    <Compile Include="Slimes\Light Slime\LightSlimePlort.cs" />
+    <Compile Include="Slimes\Newbuck Slime\NewbuckSlimePlort.cs" />
+    <Compile Include="Slimes\Newbuck Slime\NewbuckSlime.cs" />
+    <Compile Include="Slimes\Plastic Slime\PlasticSlimePlort.cs" />
+    <Compile Include="Slimes\Provider Slime\ProviderSlime.cs" />
+    <Compile Include="Slimes\Grass Slime\GrassSlime.cs" />
+    <Compile Include="Slimes\Grass Slime\GrassSlimePlort.cs" />
+    <Compile Include="Slimes\Soil Slime\SoilSlimePlort.cs" />
+    <Compile Include="Slimes\Soil Slime\SoilSlime.cs" />
+    <Compile Include="Slimes\Wood Slime\WoodSlimePlort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Other\Extensions.cs" />
     <None Include="Other\SecretStyles.cs" />
-    <Compile Include="Slimes\ConcreteSlime.cs" />
-    <Compile Include="Slimes\IceSlime.cs" />
-    <Compile Include="Slimes\CopperSlime.cs" />
-    <Compile Include="Slimes\CottonSlime.cs" />
-    <Compile Include="Slimes\GlassSlime.cs" />
-    <Compile Include="Slimes\GlueSlime.cs" />
-    <Compile Include="Slimes\DarkSlime.cs" />
-    <Compile Include="Slimes\LightSlime.cs" />
-    <Compile Include="Slimes\MetalSlime.cs" />
-    <Compile Include="Slimes\PlasticSlime.cs" />
-    <Compile Include="Slimes\SelfDiscoverySlime.cs" />
-    <Compile Include="Slimes\WoodSlime.cs" />
+    <Compile Include="Slimes\Concrete Slime\ConcreteSlime.cs" />
+    <Compile Include="Slimes\Ice Slime\IceSlime.cs" />
+    <Compile Include="Slimes\Copper Slime\CopperSlime.cs" />
+    <Compile Include="Slimes\Cotton Slime\CottonSlime.cs" />
+    <Compile Include="Slimes\Glass Slime\GlassSlime.cs" />
+    <Compile Include="Slimes\Glue Slime\GlueSlime.cs" />
+    <Compile Include="Slimes\Dark Slime\DarkSlime.cs" />
+    <Compile Include="Slimes\Light Slime\LightSlime.cs" />
+    <Compile Include="Slimes\Metal Slime\MetalSlime.cs" />
+    <Compile Include="Slimes\Plastic Slime\PlasticSlime.cs" />
+    <Compile Include="Slimes\Self Discovery Slime\SelfDiscoverySlime.cs" />
+    <Compile Include="Slimes\Wood Slime\WoodSlime.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="modinfo.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plorts\MetalSlimePlort.cs" />
+    <Compile Include="Slimes\Metal Slime\MetalSlimePlort.cs" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\glue_slime.png" />
-    <EmbeddedResource Include="Assets\glue_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Glue\glue_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Glue\glue_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\plastic_slime.png" />
-    <EmbeddedResource Include="Assets\plastic_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Plastic\plastic_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Plastic\plastic_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\glass_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Glass\glass_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\glass_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Glass\glass_slime.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\metal_slime.png" />
-    <EmbeddedResource Include="Assets\metal_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Metal\metal_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Metal\metal_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\wood_slime.png" />
-    <EmbeddedResource Include="Assets\wood_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Wood\wood_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Wood\wood_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\selfdiscovery_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Discovery\selfdiscovery_slime.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\light_slime.png" />
-    <EmbeddedResource Include="Assets\light_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Light\light_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Light\light_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\concrete_slime.png" />
-    <EmbeddedResource Include="Assets\concrete_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Concrete\concrete_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Concrete\concrete_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Plans.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\dark_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Dark\dark_slime.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\cotton_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Cotton\cotton_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\cotton_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Cotton\cotton_slime.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\copper_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Copper\copper_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\copper_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Copper\copper_slime.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Assets\ice_slime.png" />
-    <EmbeddedResource Include="Assets\ice_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Ice\ice_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Ice\ice_slime_plort.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Textures\white_texture.png" />
+    <None Include="Assets\Textures\white_texture.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Textures\black_texture.png" />
+    <EmbeddedResource Include="Assets\Items\MaterialSqueeze\squeeze_icon.png" />
+    <EmbeddedResource Include="Assets\Slimes\Newbuck\newbuck_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Newbuck\newbuck_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Newbuck\richer_newbuck_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Newbuck\rich_newbuck_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Other\Fragment\dangerous_plort.png" />
+    <EmbeddedResource Include="Assets\Other\Fragment\fragment_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Provider\provider_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Soil\soil_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Soil\soil_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Soil\soil_slime_rock_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Grass\grass_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Grass\grass_slime_plant_plort.png" />
+    <EmbeddedResource Include="Assets\Slimes\Grass\grass_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Items\Fertilizer\fertilizer_icon.png" />
+    <EmbeddedResource Include="Assets\Gadgets\MaterialExtractor\materialExtract_icon.png" />
     <Content Include="darkoutbreak1.png" />
     <Content Include="darkoutbreak2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Slimes\Neon Slime\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />

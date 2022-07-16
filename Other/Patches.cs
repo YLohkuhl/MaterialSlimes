@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Extensions;
 using HarmonyLib;
+using ModdedIds;
 using UnityEngine;
 
 namespace Patches
 {
 
     [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
-    internal class Patch_SlimeEatProduce
+    internal class Patch_SlimeEatProduce_Discovery
     {
         // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
         private static bool Prefix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
@@ -66,11 +68,280 @@ namespace Patches
                 // exclusive sliemmssdnashf (1-2%(?))
                 list2.Add(ModdedIds.lightIds.LIGHT_SLIME);
                 list2.Add(ModdedIds.darkIds.DARK_SLIME);
+                list2.Add(ModdedIds.providerIds.PROVIDER_SLIME);
 
                 em.producesId = list2.RandomObject<Identifiable.Id>();
             }
 
             return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
+    internal class Patch_SlimeEatProduce_Newbuck
+    {
+        // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
+        private static bool Prefix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+
+            bool flag5 = __instance.slimeDefinition.Matches(ModdedIds.newbuckIds.NEWBUCK_SLIME);
+            if (flag5)
+            {
+                List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.NEWBUCK_PLORT);
+
+                list2.Add(ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT);
+
+                list2.Add(ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT);
+                list2.Add(ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT);
+
+                em.producesId = list2.RandomObject<Identifiable.Id>();
+            }
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
+    internal class Patch_SlimeEatProduce_Provider
+    {
+        // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
+        private static bool Prefix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+
+            bool flag5 = __instance.slimeDefinition.Matches(ModdedIds.providerIds.PROVIDER_SLIME);
+            if (flag5)
+            {
+                List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+                // VEGGIES
+
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+
+                list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+                list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+                list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+
+                list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+                list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+                list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+
+                list2.Add(Identifiable.Id.ONION_VEGGIE);
+                list2.Add(Identifiable.Id.ONION_VEGGIE);
+                list2.Add(Identifiable.Id.ONION_VEGGIE);
+
+                list2.Add(Identifiable.Id.GINGER_VEGGIE);
+
+                // FRUITS
+
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+
+                list2.Add(Identifiable.Id.LEMON_FRUIT);
+                list2.Add(Identifiable.Id.LEMON_FRUIT);
+                list2.Add(Identifiable.Id.LEMON_FRUIT);
+
+                list2.Add(Identifiable.Id.MANGO_FRUIT);
+                list2.Add(Identifiable.Id.MANGO_FRUIT);
+                list2.Add(Identifiable.Id.MANGO_FRUIT);
+
+                list2.Add(Identifiable.Id.PEAR_FRUIT);
+                list2.Add(Identifiable.Id.PEAR_FRUIT);
+                list2.Add(Identifiable.Id.PEAR_FRUIT);
+
+                list2.Add(Identifiable.Id.KOOKADOBA_FRUIT);
+
+                // MEAT
+                list2.Add(Identifiable.Id.HEN);
+                list2.Add(Identifiable.Id.HEN);
+                list2.Add(Identifiable.Id.HEN);
+                list2.Add(Identifiable.Id.HEN);
+                list2.Add(Identifiable.Id.HEN);
+
+                list2.Add(Identifiable.Id.STONY_HEN);
+                list2.Add(Identifiable.Id.STONY_HEN);
+                list2.Add(Identifiable.Id.STONY_HEN);
+                list2.Add(Identifiable.Id.STONY_HEN);
+                list2.Add(Identifiable.Id.STONY_HEN);
+
+                list2.Add(Identifiable.Id.BRIAR_HEN);
+                list2.Add(Identifiable.Id.BRIAR_HEN);
+                list2.Add(Identifiable.Id.BRIAR_HEN);
+                list2.Add(Identifiable.Id.BRIAR_HEN);
+                list2.Add(Identifiable.Id.BRIAR_HEN);
+
+                list2.Add(Identifiable.Id.PAINTED_HEN);
+                list2.Add(Identifiable.Id.PAINTED_HEN);
+                list2.Add(Identifiable.Id.PAINTED_HEN);
+
+                list2.Add(Identifiable.Id.ROOSTER);
+                list2.Add(Identifiable.Id.ROOSTER);
+                list2.Add(Identifiable.Id.ROOSTER);
+
+                list2.Add(Identifiable.Id.ELDER_HEN);
+                list2.Add(Identifiable.Id.ELDER_HEN);
+                list2.Add(Identifiable.Id.ELDER_HEN);
+
+                list2.Add(Identifiable.Id.ELDER_ROOSTER);
+                list2.Add(Identifiable.Id.ELDER_ROOSTER);
+                list2.Add(Identifiable.Id.ELDER_ROOSTER);
+
+                // SPECIAL ITEMS
+                list2.Add(itemIds.MATERIAL_SQUEEZE);
+                list2.Add(itemIds.MATERIAL_SQUEEZE);
+                list2.Add(itemIds.MATERIAL_SQUEEZE);
+
+                list2.Add(itemIds.FERTILIZER);
+                list2.Add(itemIds.FERTILIZER);
+                list2.Add(itemIds.FERTILIZER);
+
+                em.producesId = list2.RandomObject<Identifiable.Id>();
+            }
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
+    internal class Patch_SlimeEatProduce_SoilAndGrass
+    {
+        // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
+        private static bool Prefix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+
+            bool flag5 = __instance.slimeDefinition.Matches(ModdedIds.soilIds.SOIL_SLIME);
+            if (flag5)
+            {
+                List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+                list2.Add(ModdedIds.soilIds.SOIL_PLORT);
+                list2.Add(ModdedIds.soilIds.SOIL_PLORT);
+                list2.Add(ModdedIds.soilIds.SOIL_PLORT);
+
+                list2.Add(ModdedIds.soilIds.ACTUAL_ROCK_PLORT);
+                list2.Add(ModdedIds.soilIds.ACTUAL_ROCK_PLORT);
+                list2.Add(ModdedIds.soilIds.ACTUAL_ROCK_PLORT);
+
+                em.producesId = list2.RandomObject<Identifiable.Id>();
+            }
+            bool flag6 = __instance.slimeDefinition.Matches(ModdedIds.grassIds.GRASS_SLIME);
+            if (flag6)
+            {
+                List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+                list2.Add(ModdedIds.grassIds.GRASS_PLORT);
+                list2.Add(ModdedIds.grassIds.GRASS_PLORT);
+                list2.Add(ModdedIds.grassIds.GRASS_PLORT);
+
+                list2.Add(ModdedIds.grassIds.PLANT_PLORT);
+                list2.Add(ModdedIds.grassIds.PLANT_PLORT);
+                list2.Add(ModdedIds.grassIds.PLANT_PLORT);
+
+                em.producesId = list2.RandomObject<Identifiable.Id>();
+            }
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(SlimeEat), "EatAndTransform")]
+    class EatMapPatch_Fertilizer
+    {
+        static void Postfix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+            if (__instance.slimeDefinition.Matches(soilIds.SOIL_SLIME))
+            {
+                List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+                /* VEGGIES
+
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+                list2.Add(Identifiable.Id.CARROT_VEGGIE);
+
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+                list2.Add(Identifiable.Id.BEET_VEGGIE);
+
+                list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+                list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+                list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+
+                list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+                list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+                list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+
+                list2.Add(Identifiable.Id.ONION_VEGGIE);
+                list2.Add(Identifiable.Id.ONION_VEGGIE);
+                list2.Add(Identifiable.Id.ONION_VEGGIE);
+
+                list2.Add(Identifiable.Id.GINGER_VEGGIE);
+
+                // FRUITS
+
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+                list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+                list2.Add(Identifiable.Id.POGO_FRUIT);
+
+                list2.Add(Identifiable.Id.LEMON_FRUIT);
+                list2.Add(Identifiable.Id.LEMON_FRUIT);
+                list2.Add(Identifiable.Id.LEMON_FRUIT);
+
+                list2.Add(Identifiable.Id.MANGO_FRUIT);
+                list2.Add(Identifiable.Id.MANGO_FRUIT);
+                list2.Add(Identifiable.Id.MANGO_FRUIT);
+
+                list2.Add(Identifiable.Id.PEAR_FRUIT);
+                list2.Add(Identifiable.Id.PEAR_FRUIT);
+                list2.Add(Identifiable.Id.PEAR_FRUIT);
+
+                list2.Add(Identifiable.Id.KOOKADOBA_FRUIT);*/
+
+                if (em.eats == itemIds.FERTILIZER)
+                    em.becomesId = Randoms.SHARED.Pick(Identifiable.FRUIT_CLASS.Union(Identifiable.VEGGIE_CLASS).ToArray());
+            }
         }
     }
 }
