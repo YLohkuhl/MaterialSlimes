@@ -41,12 +41,12 @@ class SoilSlime // Slime name here
         slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[2] // additional foods
         {
             Identifiable.Id.SLIME_FOSSIL_CRAFT,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[2] // favorites
         {
             Identifiable.Id.SLIME_FOSSIL_CRAFT,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.EatMap?.Clear(); // don't touch this unless your probably a little more advanced, idk
         /* TARR SUPPORT (this is if you want it)

@@ -69,9 +69,12 @@
     <None Include="Behaviours\BetterSlimeFlee.cs" />
     <Compile Include="Behaviours\BetterSlimeHover.cs" />
     <Compile Include="Behaviours\MaterialDecay.cs" />
+    <Compile Include="Gadgets\RiskyMaterialExtractor.cs" />
     <Compile Include="Gadgets\MaterialExtractor.cs" />
+    <Compile Include="Items\AnonymousCompound.cs" />
     <Compile Include="Items\Fertilizer.cs" />
     <Compile Include="Items\MaterialSqueeze.cs" />
+    <Compile Include="Items\SpiritualMaterial.cs" />
     <Compile Include="Other\GameIDs\GadgetIds.cs" />
     <Compile Include="Other\OtherPlorts.cs" />
     <Compile Include="Other\Eatmaps.cs" />
@@ -89,11 +92,14 @@
     <Compile Include="Other\LoadPoints\PreloadPoint.cs" />
     <Compile Include="Other\Patches.cs" />
     <Compile Include="Slimes\Concrete Slime\ConcreteSlimePlort.cs" />
+    <Compile Include="Slimes\Dark Slime\CivilizedDarkSlime.cs" />
+    <Compile Include="Slimes\Dark Slime\CivilizedDarkSlimePlort.cs" />
     <Compile Include="Slimes\Ice Slime\IceSlimePlort.cs" />
     <Compile Include="Slimes\Copper Slime\CopperSlimePlort.cs" />
     <Compile Include="Slimes\Glass Slime\GlassSlimePlort.cs" />
     <Compile Include="Slimes\Cotton Slime\CottonSlimePlort.cs" />
     <Compile Include="Slimes\Glue Slime\GlueSlimePlort.cs" />
+    <Compile Include="Slimes\Light Slime\UncivilizedLightSlime.cs" />
     <Compile Include="Slimes\Light Slime\LightSlimePlort.cs" />
     <Compile Include="Slimes\Newbuck Slime\NewbuckSlimePlort.cs" />
     <Compile Include="Slimes\Newbuck Slime\NewbuckSlime.cs" />
@@ -203,6 +209,12 @@
     <EmbeddedResource Include="Assets\Slimes\Grass\grass_slime_plort.png" />
     <EmbeddedResource Include="Assets\Items\Fertilizer\fertilizer_icon.png" />
     <EmbeddedResource Include="Assets\Gadgets\MaterialExtractor\materialExtract_icon.png" />
+    <EmbeddedResource Include="Assets\Items\AnonymousCompound\compound_icon.png" />
+    <EmbeddedResource Include="Assets\Slimes\Dark\civilized_dark_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Light\uncivilized_light_slime.png" />
+    <EmbeddedResource Include="Assets\Slimes\Dark\civilized_dark_slime_plort.png" />
+    <EmbeddedResource Include="Assets\Gadgets\RiskyMaterialExtractor\risky_materialExtract_icon.png" />
+    <EmbeddedResource Include="Assets\Items\SpiritualMaterial\spiritual_icon.png" />
     <Content Include="darkoutbreak1.png" />
     <Content Include="darkoutbreak2.png" />
   </ItemGroup>

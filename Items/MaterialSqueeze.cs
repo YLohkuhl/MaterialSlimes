@@ -26,7 +26,7 @@ class MaterialSqueeze
     static public void LoadMaterialSqueeze()
     {
         GameObject materialSqueeze = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PRIMORDY_OIL_CRAFT));
-        materialSqueeze.GetComponent<Identifiable>().id = itemIds.MATERIAL_SQUEEZE;
+        materialSqueeze.GetComponent<Identifiable>().id = itemIds.MATERIAL_SQUEEZE_CRAFT;
         materialSqueeze.name = "resourceMaterialSqueeze";
 
         Material GlueMaterial = Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(ModdedIds.glueIds.GLUE_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
@@ -36,11 +36,11 @@ class MaterialSqueeze
         materialSqueeze.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = DarkMaterial;
 
         LookupRegistry.RegisterIdentifiablePrefab(materialSqueeze);
-        AmmoRegistry.RegisterSiloAmmo((SiloStorage.StorageType x) => x == SiloStorage.StorageType.NON_SLIMES || x == SiloStorage.StorageType.CRAFTING, itemIds.MATERIAL_SQUEEZE);
-        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.MATERIAL_SQUEEZE));
-        AmmoRegistry.RegisterRefineryResource(itemIds.MATERIAL_SQUEEZE);
-        LookupRegistry.RegisterVacEntry(itemIds.MATERIAL_SQUEEZE, Color.white, CreateSprite(LoadImage("Assets.Items.MaterialSqueeze.squeeze_icon.png")));
-        GameObject prefab = SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.MATERIAL_SQUEEZE);
+        AmmoRegistry.RegisterSiloAmmo((SiloStorage.StorageType x) => x == SiloStorage.StorageType.NON_SLIMES || x == SiloStorage.StorageType.CRAFTING, itemIds.MATERIAL_SQUEEZE_CRAFT);
+        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.MATERIAL_SQUEEZE_CRAFT));
+        AmmoRegistry.RegisterRefineryResource(itemIds.MATERIAL_SQUEEZE_CRAFT);
+        LookupRegistry.RegisterVacEntry(itemIds.MATERIAL_SQUEEZE_CRAFT, new Color32(255, 254, 247, 255), CreateSprite(LoadImage("Assets.Items.MaterialSqueeze.squeeze_icon.png")));
+        GameObject prefab = SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.MATERIAL_SQUEEZE_CRAFT);
         prefab.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
     }
 }

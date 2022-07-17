@@ -8,13 +8,22 @@ using SRML.Utils.Enum;
 internal class itemIds
 {
     // material squeeze
-    public static readonly Identifiable.Id MATERIAL_SQUEEZE;
+    public static readonly Identifiable.Id MATERIAL_SQUEEZE_CRAFT;
 
     public static readonly PediaDirector.Id MATERIAL_SQUEEZE_ENTRY;
 
     // fertilizer
-
-    public static readonly Identifiable.Id FERTILIZER;
+    public static readonly Identifiable.Id FERTILIZER_CRAFT;
 
     public static readonly PediaDirector.Id FERTILIZER_ENTRY;
+
+    // anonymous compound
+    public static readonly Identifiable.Id ANONYMOUS_COMPOUND_CRAFT;
+
+    public static readonly PediaDirector.Id ANONYMOUS_COMPOUND_ENTRY;
+
+    // spiritual material
+    public static readonly Identifiable.Id SPIRITUAL_MATERIAL_CRAFT;
+
+    public static readonly PediaDirector.Id SPIRITUAL_MATERIAL_ENTRY;
 }

@@ -45,6 +45,11 @@ namespace Patches
                 list2.Add(ModdedIds.cottonIds.COTTON_SLIME);
                 list2.Add(ModdedIds.cottonIds.COTTON_SLIME);
 
+                // soil (20%)
+                list2.Add(ModdedIds.soilIds.SOIL_SLIME);
+                list2.Add(ModdedIds.soilIds.SOIL_SLIME);
+                list2.Add(ModdedIds.soilIds.SOIL_SLIME);
+
                 // copper (15%)
                 list2.Add(ModdedIds.copperIds.COPPER_SLIME);
                 list2.Add(ModdedIds.copperIds.COPPER_SLIME);
@@ -217,13 +222,13 @@ namespace Patches
                 list2.Add(Identifiable.Id.ELDER_ROOSTER);
 
                 // SPECIAL ITEMS
-                list2.Add(itemIds.MATERIAL_SQUEEZE);
-                list2.Add(itemIds.MATERIAL_SQUEEZE);
-                list2.Add(itemIds.MATERIAL_SQUEEZE);
+                list2.Add(itemIds.MATERIAL_SQUEEZE_CRAFT);
+                list2.Add(itemIds.MATERIAL_SQUEEZE_CRAFT);
+                list2.Add(itemIds.MATERIAL_SQUEEZE_CRAFT);
 
-                list2.Add(itemIds.FERTILIZER);
-                list2.Add(itemIds.FERTILIZER);
-                list2.Add(itemIds.FERTILIZER);
+                list2.Add(itemIds.FERTILIZER_CRAFT);
+                list2.Add(itemIds.FERTILIZER_CRAFT);
+                list2.Add(itemIds.FERTILIZER_CRAFT);
 
                 em.producesId = list2.RandomObject<Identifiable.Id>();
             }
@@ -283,7 +288,7 @@ namespace Patches
             {
                 List<Identifiable.Id> list2 = new List<Identifiable.Id>();
 
-                /* VEGGIES
+                // VEGGIES
 
                 list2.Add(Identifiable.Id.CARROT_VEGGIE);
                 list2.Add(Identifiable.Id.CARROT_VEGGIE);
@@ -337,11 +342,72 @@ namespace Patches
                 list2.Add(Identifiable.Id.PEAR_FRUIT);
                 list2.Add(Identifiable.Id.PEAR_FRUIT);
 
-                list2.Add(Identifiable.Id.KOOKADOBA_FRUIT);*/
+                list2.Add(Identifiable.Id.KOOKADOBA_FRUIT);
 
-                if (em.eats == itemIds.FERTILIZER)
-                    em.becomesId = Randoms.SHARED.Pick(Identifiable.FRUIT_CLASS.Union(Identifiable.VEGGIE_CLASS).ToArray());
+                if (em.eats == itemIds.FERTILIZER_CRAFT)
+                    em.becomesId = list2.RandomObject();
+                // em.becomesId = Randoms.SHARED.Pick(Identifiable.FRUIT_CLASS.Union(Identifiable.VEGGIE_CLASS).ToArray());
             }
+        }
+    }
+    [HarmonyPatch(typeof(SlimeEat), "EatAndTransform")]
+    class EatMapPatch_SpiritualMaterial
+    {
+        static void Postfix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+            List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+            // material losalfosal
+
+            // wood (50%)
+            list2.Add(ModdedIds.woodIds.WOOD_SLIME);
+            list2.Add(ModdedIds.woodIds.WOOD_SLIME);
+            list2.Add(ModdedIds.woodIds.WOOD_SLIME);
+            list2.Add(ModdedIds.woodIds.WOOD_SLIME);
+            list2.Add(ModdedIds.woodIds.WOOD_SLIME);
+
+            // glue (20%)
+            list2.Add(ModdedIds.glueIds.GLUE_SLIME);
+            list2.Add(ModdedIds.glueIds.GLUE_SLIME);
+            list2.Add(ModdedIds.glueIds.GLUE_SLIME);
+
+            // concrete (20%)
+            list2.Add(ModdedIds.concreteIds.CONCRETE_SLIME);
+            list2.Add(ModdedIds.concreteIds.CONCRETE_SLIME);
+            list2.Add(ModdedIds.concreteIds.CONCRETE_SLIME);
+
+            // cotton (20%)
+            list2.Add(ModdedIds.cottonIds.COTTON_SLIME);
+            list2.Add(ModdedIds.cottonIds.COTTON_SLIME);
+            list2.Add(ModdedIds.cottonIds.COTTON_SLIME);
+
+            // soil (20%)
+            list2.Add(ModdedIds.soilIds.SOIL_SLIME);
+            list2.Add(ModdedIds.soilIds.SOIL_SLIME);
+            list2.Add(ModdedIds.soilIds.SOIL_SLIME);
+
+            // copper (15%)
+            list2.Add(ModdedIds.copperIds.COPPER_SLIME);
+            list2.Add(ModdedIds.copperIds.COPPER_SLIME);
+
+            // ice (12%)
+            list2.Add(ModdedIds.iceIds.ICE_SLIME);
+            list2.Add(ModdedIds.iceIds.ICE_SLIME);
+
+            // glass (10%)
+            list2.Add(ModdedIds.glassIds.GLASS_SLIME);
+            list2.Add(ModdedIds.glassIds.GLASS_SLIME);
+
+            // metal (9%)
+            list2.Add(ModdedIds.metalIds.METAL_SLIME);
+            list2.Add(ModdedIds.metalIds.METAL_SLIME);
+
+            // plastic (8%)
+            list2.Add(ModdedIds.plasticIds.PLASTIC_SLIME);
+            list2.Add(ModdedIds.plasticIds.PLASTIC_SLIME);
+
+            if (em.eats == itemIds.SPIRITUAL_MATERIAL_CRAFT)
+                em.becomesId = list2.RandomObject();
+            // em.becomesId = Randoms.SHARED.Pick(Identifiable.FRUIT_CLASS.Union(Identifiable.VEGGIE_CLASS).ToArray());
         }
     }
 }

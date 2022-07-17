@@ -26,7 +26,7 @@ class Fertilizer
     static public void LoadFertilizer()
     {
         GameObject fertilizer = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.SILKY_SAND_CRAFT));
-        fertilizer.GetComponent<Identifiable>().id = itemIds.FERTILIZER;
+        fertilizer.GetComponent<Identifiable>().id = itemIds.FERTILIZER_CRAFT;
         fertilizer.name = "resourceFertilizer";
 
         Material SoilMaterial = Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(ModdedIds.soilIds.SOIL_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
@@ -36,11 +36,11 @@ class Fertilizer
         fertilizer.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().material = DarkMaterial;
 
         LookupRegistry.RegisterIdentifiablePrefab(fertilizer);
-        AmmoRegistry.RegisterSiloAmmo((SiloStorage.StorageType x) => x == SiloStorage.StorageType.NON_SLIMES || x == SiloStorage.StorageType.CRAFTING, itemIds.FERTILIZER);
-        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.FERTILIZER));
-        AmmoRegistry.RegisterRefineryResource(itemIds.FERTILIZER);
-        LookupRegistry.RegisterVacEntry(itemIds.FERTILIZER, new Color32(124, 94, 66, 255), CreateSprite(LoadImage("Assets.Items.Fertilizer.fertilizer_icon.png")));
-        GameObject prefab = SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.FERTILIZER);
+        AmmoRegistry.RegisterSiloAmmo((SiloStorage.StorageType x) => x == SiloStorage.StorageType.NON_SLIMES || x == SiloStorage.StorageType.CRAFTING, itemIds.FERTILIZER_CRAFT);
+        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.FERTILIZER_CRAFT));
+        AmmoRegistry.RegisterRefineryResource(itemIds.FERTILIZER_CRAFT);
+        LookupRegistry.RegisterVacEntry(itemIds.FERTILIZER_CRAFT, new Color32(124, 94, 66, 255), CreateSprite(LoadImage("Assets.Items.Fertilizer.fertilizer_icon.png")));
+        GameObject prefab = SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(itemIds.FERTILIZER_CRAFT);
         prefab.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
     }
 }

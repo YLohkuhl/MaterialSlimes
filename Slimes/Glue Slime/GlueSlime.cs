@@ -40,12 +40,12 @@ class GlueSlime
         {
             Identifiable.Id.PINK_SLIME,
             Identifiable.Id.PINK_PLORT,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[2]
         {
             Identifiable.Id.BEET_VEGGIE,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

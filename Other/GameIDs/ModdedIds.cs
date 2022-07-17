@@ -64,6 +64,10 @@ namespace ModdedIds
         public static readonly Identifiable.Id LIGHT_PLORT;
 
         public static readonly PediaDirector.Id LIGHT_ENTRY;
+
+        public static readonly Identifiable.Id UNCIVILIZED_LIGHT_SLIME;
+
+        public static readonly PediaDirector.Id UNCIVILIZED_LIGHT_ENTRY;
     }
     [EnumHolder]
     internal class concreteIds
@@ -80,6 +84,12 @@ namespace ModdedIds
         public static readonly Identifiable.Id DARK_SLIME;
 
         public static readonly PediaDirector.Id DARK_ENTRY;
+
+        public static readonly Identifiable.Id CIVILIZED_DARK_SLIME;
+
+        public static readonly Identifiable.Id CIVILIZED_DARK_PLORT;
+
+        public static readonly PediaDirector.Id CIVILIZED_DARK_ENTRY;
     }
     [EnumHolder]
     internal class cottonIds

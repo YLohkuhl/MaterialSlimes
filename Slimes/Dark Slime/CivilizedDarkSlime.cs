@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-class LightSlime
+class CivilizedDarkSlime
 {
     public static Texture2D LoadImage(string filename)
     {
@@ -30,7 +30,7 @@ class LightSlime
         slimeDefinition.AppearancesDefault = new SlimeAppearance[1];
         slimeDefinition.Diet.Produces = new Identifiable.Id[1]
         {
-            ModdedIds.lightIds.LIGHT_PLORT
+            ModdedIds.darkIds.CIVILIZED_DARK_PLORT
         };
         slimeDefinition.Diet.MajorFoodGroups = new SlimeEat.FoodGroup[1]
         {
@@ -62,15 +62,15 @@ class LightSlime
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;
         slimeDefinition.FavoriteToys = new Identifiable.Id[1];
-        slimeDefinition.Name = "Light Slime";
-        slimeDefinition.IdentifiableId = ModdedIds.lightIds.LIGHT_SLIME;
+        slimeDefinition.Name = "Civilized Dark Slime";
+        slimeDefinition.IdentifiableId = ModdedIds.darkIds.CIVILIZED_DARK_SLIME;
         // OBJECT
         GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PINK_SLIME));
-        slimeObject.name = "slimeLight";
+        slimeObject.name = "slimeCivilizedDark";
         slimeObject.GetComponent<PlayWithToys>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeAppearanceApplicator>().SlimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeEat>().slimeDefinition = slimeDefinition;
-        slimeObject.GetComponent<Identifiable>().id = ModdedIds.lightIds.LIGHT_SLIME;
+        slimeObject.GetComponent<Identifiable>().id = ModdedIds.darkIds.CIVILIZED_DARK_SLIME;
         slimeObject.AddComponent<MaterialDecay>();
         UnityEngine.Object.Destroy(slimeObject.GetComponent<FleeThreats>());
         UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
@@ -84,10 +84,10 @@ class LightSlime
             if (defaultMaterials != null && defaultMaterials.Length != 0)
             {
                 Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.RAD_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
-                material.SetColor("_TopColor", Color.yellow);
-                material.SetColor("_MiddleColor", Color.white);
-                material.SetColor("_BottomColor", Color.yellow);
-                material.SetColor("_SpecColor", Color.white);
+                material.SetColor("_TopColor", Color.black);
+                material.SetColor("_MiddleColor", Color.yellow);
+                material.SetColor("_BottomColor", Color.black);
+                material.SetColor("_SpecColor", Color.yellow);
                 // material.SetColor("_MiddleColor", new Color32(255, 255, 0, 255));
                 // material.SetColor("_EdgeColor", new Color32(255, 255, 0, 255));
                 material.SetFloat("_Shininess", 1f);
@@ -95,7 +95,7 @@ class LightSlime
                 slimeAppearanceStructure.DefaultMaterials[0] = material;
                 // you took way to dang long dang it
                 Material material2 = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.RAD_SLIME).AppearancesDefault[0].Structures[1].DefaultMaterials[0]);
-                material2.SetColor("_MiddleColor", new Color32(255, 255, 0, 255));
+                material2.SetColor("_MiddleColor", new Color32(0, 0, 0, 255));
                 material2.SetColor("_EdgeColor", new Color32(255, 255, 0, 255));
                 slimeAppearance.Structures[1].DefaultMaterials[0] = material2;
             }
@@ -106,9 +106,9 @@ class LightSlime
             SlimeExpressionFace slimeExpressionFace = expressionFaces[k];
             if ((bool)slimeExpressionFace.Mouth)
             {
-                slimeExpressionFace.Mouth.SetColor("_MouthBot", Color.white);
-                slimeExpressionFace.Mouth.SetColor("_MouthMid", Color.white);
-                slimeExpressionFace.Mouth.SetColor("_MouthTop", Color.white);
+                slimeExpressionFace.Mouth.SetColor("_MouthBot", Color.black);
+                slimeExpressionFace.Mouth.SetColor("_MouthMid", Color.black);
+                slimeExpressionFace.Mouth.SetColor("_MouthTop", Color.black);
             }
             if ((bool)slimeExpressionFace.Eyes)
             {   /*
@@ -117,19 +117,19 @@ class LightSlime
                 slimeExpressionFace.Eyes.SetColor("_EyeBlue", new Color32(182, 170, 205, 255));
                 */
                 slimeExpressionFace.Eyes.SetColor("_EyeRed", Color.yellow);
-                slimeExpressionFace.Eyes.SetColor("_EyeGreen", Color.white);
+                slimeExpressionFace.Eyes.SetColor("_EyeGreen", Color.yellow);
                 slimeExpressionFace.Eyes.SetColor("_EyeBlue", Color.yellow);
             }
         }
-        slimeAppearance.Icon = CreateSprite(LoadImage("Assets.Slimes.Light.light_slime.png"));
+        slimeAppearance.Icon = CreateSprite(LoadImage("Assets.Slimes.Dark.civilized_dark_slime.png"));
         slimeAppearance.Face.OnEnable();
         slimeAppearance.ColorPalette = new SlimeAppearance.Palette
         {
-            Top = Color.yellow,
-            Middle = Color.white,
-            Bottom = Color.yellow
+            Top = Color.black,
+            Middle = Color.yellow,
+            Bottom = Color.black
         };
-        PediaRegistry.RegisterIdEntry(ModdedIds.lightIds.LIGHT_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Light.light_slime.png")));
+        PediaRegistry.RegisterIdEntry(ModdedIds.darkIds.CIVILIZED_DARK_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Dark.civilized_dark_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;
         return (slimeDefinition, slimeObject);
     }

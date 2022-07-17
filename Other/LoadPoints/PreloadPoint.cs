@@ -33,8 +33,13 @@ class PreloadPoint
         TranslationPatcher.AddUITranslation("m.foodgroup.nontarrgold_slimes", "Slimes");
 
         // ITEMS
-        TranslationPatcher.AddActorTranslation("l." + itemIds.MATERIAL_SQUEEZE.ToString().ToLower(), "Material Squeeze");
-        TranslationPatcher.AddActorTranslation("l." + itemIds.FERTILIZER.ToString().ToLower(), "Fertilizer");
+        TranslationPatcher.AddActorTranslation("l." + itemIds.MATERIAL_SQUEEZE_CRAFT.ToString().ToLower(), "Material Squeeze");
+
+        TranslationPatcher.AddActorTranslation("l." + itemIds.FERTILIZER_CRAFT.ToString().ToLower(), "Fertilizer");
+
+        TranslationPatcher.AddActorTranslation("l." + itemIds.ANONYMOUS_COMPOUND_CRAFT.ToString().ToLower(), "Anonymous Compound");
+
+        TranslationPatcher.AddActorTranslation("l." + itemIds.SPIRITUAL_MATERIAL_CRAFT.ToString().ToLower(), "Spiritual Material");
 
         // FRAGMENTS
 
@@ -394,6 +399,20 @@ class PreloadPoint
         Identifiable.PLORT_CLASS.Add(ModdedIds.lightIds.LIGHT_PLORT);
         Identifiable.NON_SLIMES_CLASS.Add(ModdedIds.lightIds.LIGHT_PLORT);
 
+        // START SLIMEPEDIA ENTRY: UNCIVILIZED LIGHT SLIME
+        PediaRegistry.RegisterIdentifiableMapping((PediaDirector.Id)1007, ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME);
+        PediaRegistry.RegisterIdentifiableMapping(ModdedIds.lightIds.UNCIVILIZED_LIGHT_ENTRY, ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME);
+        PediaRegistry.SetPediaCategory(ModdedIds.lightIds.UNCIVILIZED_LIGHT_ENTRY, (PediaRegistry.PediaCategory)1);
+        new SlimePediaEntryTranslation(ModdedIds.lightIds.UNCIVILIZED_LIGHT_ENTRY)
+            .SetTitleTranslation("Uncivilized Light Slime")
+            .SetIntroTranslation("That's.. not quite right.")
+            .SetDietTranslation("Slimes")
+            .SetFavoriteTranslation("(none)")
+            .SetSlimeologyTranslation("This Light Slime isn't exactly normal.. seems its behavior has reversed into Dark Slime Behavior? That's very.. odd. This could be possibly achieved if fed a special substance, but you didn't do that.. right? These Light Slimes are sided with tarrs, so they will not eat them.")
+            .SetRisksTranslation("These Light Slimes are NOT safe, you must get rid of them as soon as possible! Seems they.. eat slimes, and create duplicants of themself, endless hunger.")
+            .SetPlortonomicsTranslation("They have no plorts, they produce duplicants of themself.");
+        // END SLIMEPEDIA ENTRY: UNCIVILIZED LIGHT SLIME
+
 
         //---------- DARK (SLIMEPEDIA, TRANSLATION, ETC) ---------- \\
 
@@ -412,6 +431,25 @@ class PreloadPoint
             .SetPlortonomicsTranslation("There is no such thing as a 'Dark Plort' or any type of plort that this slime produces, it will produce other Dark Slimes.");
         // END SLIMEPEDIA ENTRY: DARK SLIME
 
+        // START SLIMEPEDIA ENTRY: CIVILIZED DARK SLIME
+        PediaRegistry.RegisterIdentifiableMapping((PediaDirector.Id)1007, ModdedIds.darkIds.CIVILIZED_DARK_SLIME);
+        PediaRegistry.RegisterIdentifiableMapping(ModdedIds.darkIds.CIVILIZED_DARK_ENTRY, ModdedIds.darkIds.CIVILIZED_DARK_SLIME);
+        PediaRegistry.SetPediaCategory(ModdedIds.darkIds.CIVILIZED_DARK_ENTRY, (PediaRegistry.PediaCategory)1);
+        new SlimePediaEntryTranslation(ModdedIds.darkIds.CIVILIZED_DARK_ENTRY)
+            .SetTitleTranslation("Civilized Dark Slime")
+            .SetIntroTranslation("That's.. not quite right.")
+            .SetDietTranslation("Plorts")
+            .SetFavoriteTranslation("(none)")
+            .SetSlimeologyTranslation("Oh- This Dark Slime has really.. had a turn on itself. LITERALLY- Seems its behavior has been swapped with the Light Slime.. how nice it is now. Much more ranchable indeed.. but what could have caused this? They weren't fed any unusual substances.. right? Tarrs are paranoid Civilized Slimes will start duplicating against them, so they will not eat them.")
+            .SetRisksTranslation("Surprisingly.. they have no risk. Maybe keep them away from Uncivilized Light Slimes, Dark Slimes, etc though.")
+            .SetPlortonomicsTranslation("Right after it didn't exist, 'Civilized Dark Plorts' now exist. These plorts have a good amount of value, especially when this is a rare thing to happen to a Dark Slime. These plorts help calm the uncivilized needs of people.");
+        // END SLIMEPEDIA ENTRY: CIVILIZED DARK SLIME
+
+        // CIVILIZED DARK PLORT TRANSLATION
+        TranslationPatcher.AddActorTranslation("l." + ModdedIds.darkIds.CIVILIZED_DARK_PLORT.ToString().ToLower(), "Civilized Dark Plort");
+        PediaRegistry.RegisterIdentifiableMapping(PediaDirector.Id.PLORTS, ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
+        Identifiable.PLORT_CLASS.Add(ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
+        Identifiable.NON_SLIMES_CLASS.Add(ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
 
         //---------- NEWBUCK (SLIMEPEDIA, TRANSLATION, ETC) ---------- \\
 
@@ -826,11 +864,11 @@ class PreloadPoint
         // --- MATERIAL SQUEEZE
 
         // START SLIMEPEDIA ENTRY: MATERIAL SQUEEZE
-        PediaRegistry.RegisterIdentifiableMapping(itemIds.MATERIAL_SQUEEZE_ENTRY, itemIds.MATERIAL_SQUEEZE);
+        PediaRegistry.RegisterIdentifiableMapping(itemIds.MATERIAL_SQUEEZE_ENTRY, itemIds.MATERIAL_SQUEEZE_CRAFT);
         PediaRegistry.RegisterIdEntry(itemIds.MATERIAL_SQUEEZE_ENTRY, CreateSprite(LoadImage("Assets.Items.MaterialSqueeze.squeeze_icon.png")));
         PediaRegistry.SetPediaCategory(itemIds.MATERIAL_SQUEEZE_ENTRY, (PediaRegistry.PediaCategory)2);
         new SlimePediaEntryTranslation(itemIds.MATERIAL_SQUEEZE_ENTRY).SetTitleTranslation("Material Squeeze").SetIntroTranslation("Some people say its squeezed from material slimes..?");
-        TranslationPatcher.AddPediaTranslation("m.resource_type.material_squeeze_entry", "Slime Science Material, Provided Food by Provider Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.material_squeeze_entry", "Slime Science Material, Provided by Provider Slimes.");
         TranslationPatcher.AddPediaTranslation("m.favored_by.material_squeeze_entry", "All Material Slimes. (Almost)");
         TranslationPatcher.AddPediaTranslation("m.desc.material_squeeze_entry", "Material Squeeze, loved by all Material Slimes! Instant favorite, provided by Provider Slimes & Material Extractors. Some people say it may or may not have been squeezed from material slimes.. is it true?");
         // END SLIMEPEDIA ENTRY: MATERIAL SQUEEZE
@@ -838,14 +876,38 @@ class PreloadPoint
         // --- FERTILIZER
 
         // START SLIMEPEDIA ENTRY: FERTILIZER
-        PediaRegistry.RegisterIdentifiableMapping(itemIds.FERTILIZER_ENTRY, itemIds.FERTILIZER);
+        PediaRegistry.RegisterIdentifiableMapping(itemIds.FERTILIZER_ENTRY, itemIds.FERTILIZER_CRAFT);
         PediaRegistry.RegisterIdEntry(itemIds.FERTILIZER_ENTRY, CreateSprite(LoadImage("Assets.Items.Fertilizer.fertilizer_icon.png")));
         PediaRegistry.SetPediaCategory(itemIds.FERTILIZER_ENTRY, (PediaRegistry.PediaCategory)2);
         new SlimePediaEntryTranslation(itemIds.FERTILIZER_ENTRY).SetTitleTranslation("Fertilizer").SetIntroTranslation("Soil Slimes love it- A LOT!");
-        TranslationPatcher.AddPediaTranslation("m.resource_type.fertilizer_entry", "Slime Science Material, Provided Food by Provider Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.fertilizer_entry", "Slime Science Material, Provided by Provider Slimes.");
         TranslationPatcher.AddPediaTranslation("m.favored_by.fertilizer_entry", "Soil Slimes");
         TranslationPatcher.AddPediaTranslation("m.desc.fertilizer_entry", "One bottle of this Fertilizer is sure to make that soil grow! They'll grow into a beautiful..? Oh, they become food! They grow into veggies and fruits, not meat though.");
         // END SLIMEPEDIA ENTRY: FERTILIZER
+
+        // --- ANONYMOUS COMPOUND
+
+        // START SLIMEPEDIA ENTRY: ANONYMOUS COMPOUND
+        PediaRegistry.RegisterIdentifiableMapping(itemIds.ANONYMOUS_COMPOUND_ENTRY, itemIds.ANONYMOUS_COMPOUND_CRAFT);
+        PediaRegistry.RegisterIdEntry(itemIds.ANONYMOUS_COMPOUND_ENTRY, CreateSprite(LoadImage("Assets.Items.AnonymousCompound.compound_icon.png")));
+        PediaRegistry.SetPediaCategory(itemIds.ANONYMOUS_COMPOUND_ENTRY, (PediaRegistry.PediaCategory)2);
+        new SlimePediaEntryTranslation(itemIds.ANONYMOUS_COMPOUND_ENTRY).SetTitleTranslation("Anonymous Compound").SetIntroTranslation("How.. anonymous.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.anonymous_compound_entry", "Slime Science Material");
+        TranslationPatcher.AddPediaTranslation("m.favored_by.anonymous_compound_entry", "Light Slimes & Dark Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.desc.anonymous_compound_entry", "This substance is unknown.. its been heard about that when fed to a Light or Dark slime, they start to act the opposite of their own behaviours. Maybe try it out?");
+        // END SLIMEPEDIA ENTRY: ANONYMOUS COMPOUND
+
+        // --- SPIRITUAL MATERIAL
+
+        // START SLIMEPEDIA ENTRY: SPIRITUAL MATERIAL
+        PediaRegistry.RegisterIdentifiableMapping(itemIds.SPIRITUAL_MATERIAL_ENTRY, itemIds.SPIRITUAL_MATERIAL_CRAFT);
+        PediaRegistry.RegisterIdEntry(itemIds.SPIRITUAL_MATERIAL_ENTRY, CreateSprite(LoadImage("Assets.Items.SpiritualMaterial.spiritual_icon.png")));
+        PediaRegistry.SetPediaCategory(itemIds.SPIRITUAL_MATERIAL_ENTRY, (PediaRegistry.PediaCategory)2);
+        new SlimePediaEntryTranslation(itemIds.SPIRITUAL_MATERIAL_ENTRY).SetTitleTranslation("Spiritual Material").SetIntroTranslation("The spirit/soul of a Material Slime.. how interesting.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.spiritual_material_entry", "Slime Science Material");
+        TranslationPatcher.AddPediaTranslation("m.favored_by.spiritual_material_entry", "All slimes.");
+        TranslationPatcher.AddPediaTranslation("m.desc.spiritual_material_entry", "A singular bottle, with a spirit of a Material Slime inside. Whatever slime eats this, will become whichever slime is stored inside. Why not set it free?");
+        // END SLIMEPEDIA ENTRY: SPIRITUAL MATERIAL
 
         return;
     }

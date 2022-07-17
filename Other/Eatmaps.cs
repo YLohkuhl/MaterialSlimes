@@ -6,11 +6,11 @@ using System.Collections.Generic;
 namespace Eatmaps
 {
     [HarmonyPatch(typeof(SlimeDiet), "RefreshEatMap")]
-    class EatMapPatc_Fragments
+    class EatMapPatch_Other
     {
         static void Postfix(SlimeDiet __instance, SlimeDefinitions definitions, SlimeDefinition definition)
         {
-            if (definition.IdentifiableId != otherIds.FRAGMENT_SLIME)
+            if (definition.IdentifiableId != otherIds.FRAGMENT_SLIME) // fragment
             {
                 __instance.EatMap.RemoveAll((x) => x.eats == otherIds.DANGEROUS_PLORT);
                 __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
@@ -20,6 +20,13 @@ namespace Eatmaps
                     minDrive = 1.5f
                 });
             }
+            __instance.EatMap.RemoveAll((x) => x.eats == itemIds.SPIRITUAL_MATERIAL_CRAFT);
+            __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+            {
+                becomesId = woodIds.WOOD_SLIME,
+                eats = itemIds.SPIRITUAL_MATERIAL_CRAFT,
+                minDrive = 1.5f
+            });
         }
     }
     [HarmonyPatch(typeof(SlimeDiet), "RefreshEatMap")]
@@ -106,22 +113,69 @@ namespace Eatmaps
             }
             if (definition.IdentifiableId == soilIds.SOIL_SLIME)
             {
-                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.FERTILIZER);
+                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.FERTILIZER_CRAFT);
                 __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
                 {
                     becomesId = list2.RandomObject(),
-                    eats = itemIds.FERTILIZER,
+                    eats = itemIds.FERTILIZER_CRAFT,
                     minDrive = 1
                 });
             }
             if (definition.IdentifiableId == soilIds.SOIL_SLIME)
             {
-                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.FERTILIZER);
+                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.FERTILIZER_CRAFT);
                 __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
                 {
                     becomesId = Identifiable.Id.CARROT_VEGGIE,
-                    eats = itemIds.FERTILIZER,
+                    eats = itemIds.FERTILIZER_CRAFT,
                     minDrive = 1
+                });
+            }
+        }
+    }
+    [HarmonyPatch(typeof(SlimeDiet), "RefreshEatMap")]
+    class EatMapPatch_LightAndDark
+    {
+        static void Postfix(SlimeDiet __instance, SlimeDefinitions definitions, SlimeDefinition definition)
+        {
+            if (definition.IdentifiableId == darkIds.DARK_SLIME) // civilized dark slime: anonymous compound
+            {
+                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.ANONYMOUS_COMPOUND_CRAFT);
+                __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+                {
+                    becomesId = darkIds.CIVILIZED_DARK_SLIME,
+                    eats = itemIds.ANONYMOUS_COMPOUND_CRAFT,
+                    minDrive = 1f
+                });
+            }
+            if (definition.IdentifiableId == lightIds.LIGHT_SLIME) // uncivilized light slime: anonymous compound
+            {
+                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.ANONYMOUS_COMPOUND_CRAFT);
+                __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+                {
+                    becomesId = lightIds.UNCIVILIZED_LIGHT_SLIME,
+                    eats = itemIds.ANONYMOUS_COMPOUND_CRAFT,
+                    minDrive = 1f
+                });
+            }
+            if (definition.IdentifiableId == darkIds.CIVILIZED_DARK_SLIME) // civilized dark slime to dark slime: anonymous compound
+            {
+                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.ANONYMOUS_COMPOUND_CRAFT);
+                __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+                {
+                    becomesId = darkIds.DARK_SLIME,
+                    eats = itemIds.ANONYMOUS_COMPOUND_CRAFT,
+                    minDrive = 1f
+                });
+            }
+            if (definition.IdentifiableId == lightIds.UNCIVILIZED_LIGHT_SLIME) // uncivilized light slime to light slie: anonymous compound
+            {
+                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.ANONYMOUS_COMPOUND_CRAFT);
+                __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+                {
+                    becomesId = lightIds.LIGHT_SLIME,
+                    eats = itemIds.ANONYMOUS_COMPOUND_CRAFT,
+                    minDrive = 1f
                 });
             }
         }

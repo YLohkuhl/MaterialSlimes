@@ -355,6 +355,24 @@ class LoadPoint
         SlimeRegistry.RegisterSlimeDefinition(Light_Light_Definition);
         // END LOAD LIGHT SLIME
 
+        // START LOAD UNCIVILIZED LIGHT SLIME
+        (SlimeDefinition, GameObject) UncivilizedLightTuple = UncivilizedLightSlime.CreateSlime(ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME, "Uncivilized Light Slime"); //Insert your own Id in the first argumeter
+
+        //Getting the SlimeDefinition and GameObject separated
+        SlimeDefinition UncivilizedLight_UncivilizedLight_Definition = UncivilizedLightTuple.Item1;
+        GameObject UncivilizedLight_UncivilizedLight_Object = UncivilizedLightTuple.Item2;
+
+        UncivilizedLight_UncivilizedLight_Object.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
+        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, UncivilizedLight_UncivilizedLight_Object);
+        LookupRegistry.RegisterVacEntry(ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME, Color.yellow, CreateSprite(LoadImage("Assets.Slimes.Light.uncivilized_light_slime.png")));
+        TranslationPatcher.AddPediaTranslation("t." + ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME.ToString().ToLower(), "Uncivilized Light Slime");
+        LookupRegistry.RegisterVacEntry(VacItemDefinition.CreateVacItemDefinition(ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME, Color.gray, CreateSprite(LoadImage("Assets.Slimes.Light.uncivilized_light_slime.png"))));
+
+        //And well, registering it!
+        LookupRegistry.RegisterIdentifiablePrefab(UncivilizedLight_UncivilizedLight_Object);
+        SlimeRegistry.RegisterSlimeDefinition(UncivilizedLight_UncivilizedLight_Definition);
+        // END LOAD UNCIVILIZED LIGHT SLIME
+
 
         //---------- DARK ---------- \\
 
@@ -376,6 +394,24 @@ class LoadPoint
         LookupRegistry.RegisterIdentifiablePrefab(Dark_Dark_Object);
         SlimeRegistry.RegisterSlimeDefinition(Dark_Dark_Definition);
         // END LOAD DARK SLIME
+
+        // START LOAD CIVILIZED DARK SLIME
+        (SlimeDefinition, GameObject) CivilizedDarkTuple = CivilizedDarkSlime.CreateSlime(ModdedIds.darkIds.CIVILIZED_DARK_SLIME, "Civilized Dark Slime"); //Insert your own Id in the first argumeter
+
+        //Getting the SlimeDefinition and GameObject separated
+        SlimeDefinition CivilizedDark_CivilizedDark_Definition = CivilizedDarkTuple.Item1;
+        GameObject CivilizedDark_CivilizedDark_Object = CivilizedDarkTuple.Item2;
+
+        CivilizedDark_CivilizedDark_Object.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
+        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, CivilizedDark_CivilizedDark_Object);
+        LookupRegistry.RegisterVacEntry(ModdedIds.darkIds.CIVILIZED_DARK_SLIME, Color.gray, CreateSprite(LoadImage("Assets.Slimes.Dark.civilized_dark_slime.png")));
+        TranslationPatcher.AddPediaTranslation("t." + ModdedIds.darkIds.CIVILIZED_DARK_SLIME.ToString().ToLower(), "Civilized Dark Slime");
+        LookupRegistry.RegisterVacEntry(VacItemDefinition.CreateVacItemDefinition(ModdedIds.darkIds.CIVILIZED_DARK_SLIME, Color.gray, CreateSprite(LoadImage("Assets.Slimes.Dark.civilized_dark_slime.png"))));
+
+        //And well, registering it!
+        LookupRegistry.RegisterIdentifiablePrefab(CivilizedDark_CivilizedDark_Object);
+        SlimeRegistry.RegisterSlimeDefinition(CivilizedDark_CivilizedDark_Definition);
+        // END LOAD CIVILIZED DARK SLIME
 
 
         //---------- NEWBUCK ---------- \\
@@ -746,6 +782,29 @@ class LoadPoint
         // END LOAD LIGHT PLORT
 
 
+        //---------- DARK ---------- \\
+
+
+        // START LOAD CIVILIZED DARK PLORT
+        GameObject CivilizedDarkPlortTuple = CivilizedDarkSlimePlort.CivilizedDarkPlort();
+
+        GameObject CivilizedDarkPlort_CivilizedDarkPlort_Object = CivilizedDarkPlortTuple;
+
+        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, CivilizedDarkPlort_CivilizedDarkPlort_Object);
+        // Icon that is below is just a placeholder. You can change it to anything or add your own! 
+        Sprite CivilizedDarkPlortIcon = CreateSprite(LoadImage("Assets.Slimes.Dark.civilized_dark_slime_plort.png"));
+        Color CivilizedDarkColor = Color.black; // RGB   
+        LookupRegistry.RegisterVacEntry(VacItemDefinition.CreateVacItemDefinition(ModdedIds.darkIds.CIVILIZED_DARK_PLORT, CivilizedDarkColor, CivilizedDarkPlortIcon));
+        AmmoRegistry.RegisterSiloAmmo(x => x == SiloStorage.StorageType.NON_SLIMES || x == SiloStorage.StorageType.PLORT, ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
+
+        float civilizedDarkPrice = 75f; //Starting price for plort
+        float civilizedDarkSaturated = 5f; //Can be anything. The higher it is, the higher the plort price changes every day. I'd recommend making it small so you don't destroy the economy lol.   
+        PlortRegistry.AddEconomyEntry(ModdedIds.darkIds.CIVILIZED_DARK_PLORT, civilizedDarkPrice, civilizedDarkSaturated); //Allows it to be sold while the one below this adds it to plort market.   
+        PlortRegistry.AddPlortEntry(ModdedIds.darkIds.CIVILIZED_DARK_PLORT); //PlortRegistry.AddPlortEntry(YourCustomEnum, new ProgressDirector.ProgressType[1]{ProgressDirector.ProgressType.NONE});   
+        DroneRegistry.RegisterBasicTarget(ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
+        // END LOAD CIVILIZED DARK PLORT
+
+
         //---------- NEWBUCK ---------- \\
 
 
@@ -813,11 +872,14 @@ class LoadPoint
     {
         MaterialSqueeze.LoadMaterialSqueeze();
         Fertilizer.LoadFertilizer();
+        AnonymousCompound.LoadAnonymousCompound();
+        SpiritualMaterial.LoadSpiritualMaterial();
     }
 
     static public void LoadGadgets()
     {
         MaterialExtractor.LoadMaterialExtractor();
+        RiskyMaterialExtractor.LoadRiskyMaterialExtractor();
     }
 }
 

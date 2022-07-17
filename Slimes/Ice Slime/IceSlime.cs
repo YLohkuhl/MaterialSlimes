@@ -38,11 +38,11 @@ class IceSlime
             Identifiable.Id.PUDDLE_PLORT,
             Identifiable.Id.PUDDLE_SLIME,
             Identifiable.Id.OCAOCA_VEGGIE,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[1]
         {
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

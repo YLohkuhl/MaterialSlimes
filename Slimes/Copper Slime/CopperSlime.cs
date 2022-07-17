@@ -39,13 +39,13 @@ class CopperSlime
         };
         slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[1]
         {
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[3]
         {
             Identifiable.Id.GINGER_VEGGIE,
             Identifiable.Id.ELDER_ROOSTER,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

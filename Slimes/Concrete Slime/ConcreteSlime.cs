@@ -38,11 +38,11 @@ class ConcreteSlime
             Identifiable.Id.ROCK_PLORT,
             Identifiable.Id.WATER_LIQUID,
             Identifiable.Id.PUDDLE_PLORT,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[1]
         {
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

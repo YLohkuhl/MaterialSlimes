@@ -7,8 +7,9 @@ using SRML.Utils.Enum;
 [EnumHolder]
 internal class gadgetIds
 {
-    // squeezer
+    // material extractor
     public static readonly Gadget.Id MATERIAL_EXTRACTOR;
 
-    public static readonly PediaDirector.Id SQUEEZER_ENTRY;
+    // risky material extractor
+    public static readonly Gadget.Id RISKY_MATERIAL_EXTRACTOR;
 }

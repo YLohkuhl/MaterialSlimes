@@ -39,12 +39,12 @@ class GlassSlime
         slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[2]
         {
             Identifiable.Id.OCAOCA_VEGGIE,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[2]
         {
             Identifiable.Id.STONY_HEN,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

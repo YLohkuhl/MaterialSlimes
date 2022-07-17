@@ -40,13 +40,13 @@ class PlasticSlime
         {
             ModdedIds.glueIds.GLUE_PLORT,
             Identifiable.Id.BRIAR_HEN,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[3]
         {
             Identifiable.Id.CUBERRY_FRUIT,
             Identifiable.Id.MANGO_FRUIT,
-            itemIds.MATERIAL_SQUEEZE
+            itemIds.MATERIAL_SQUEEZE_CRAFT
         };
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

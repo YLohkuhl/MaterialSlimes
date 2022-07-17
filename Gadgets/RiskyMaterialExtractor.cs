@@ -9,7 +9,7 @@ using SRML.Utils;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public class MaterialExtractor : GadgetModel, ISerializableModel
+public class RiskyMaterialExtractor : GadgetModel, ISerializableModel
 {
     
     public static Texture2D LoadImage(string filename)
@@ -33,7 +33,7 @@ public class MaterialExtractor : GadgetModel, ISerializableModel
         }
     }
 
-    public MaterialExtractor(Gadget.Id ident, string siteId, Transform transform) : base(ident, siteId, transform)
+    public RiskyMaterialExtractor(Gadget.Id ident, string siteId, Transform transform) : base(ident, siteId, transform)
     {
     }
 
@@ -52,18 +52,24 @@ public class MaterialExtractor : GadgetModel, ISerializableModel
     public float testProperty;
 
 
-    static public void LoadMaterialExtractor()
+    static public void LoadRiskyMaterialExtractor()
     {
         // OBJECTS, PRODUCES, ETC
-        GameObject gadgetObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetGadgetDefinition(Gadget.Id.EXTRACTOR_PUMP_ADVANCED).prefab);
+        GameObject gadgetObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetGadgetDefinition(Gadget.Id.EXTRACTOR_DRILL_ADVANCED).prefab);
 
         GameObject fx = gadgetObject.GetComponent<Extractor>().produces[0].spawnFX;
 
-        var itemProduced = new Extractor.ProduceEntry[3]
+        var itemProduced = new Extractor.ProduceEntry[5]
         {
             new Extractor.ProduceEntry() {
                 id = itemIds.MATERIAL_SQUEEZE_CRAFT,
                 weight = 6f,
+                restrictZone = false,
+                spawnFX = fx
+            },
+            new Extractor.ProduceEntry() {
+                id = otherIds.DANGEROUS_PLORT,
+                weight = 3.8f,
                 restrictZone = false,
                 spawnFX = fx
             },
@@ -78,56 +84,72 @@ public class MaterialExtractor : GadgetModel, ISerializableModel
                 weight = 0.5f,
                 restrictZone = false,
                 spawnFX = fx
-            }
+            },
+            new Extractor.ProduceEntry() {
+                id = itemIds.SPIRITUAL_MATERIAL_CRAFT,
+                weight = 0.5f,
+                restrictZone = false,
+                spawnFX = fx
+            },
         };
 
         // GADGET COMPONENTS
-        gadgetObject.GetComponent<Gadget>().id = gadgetIds.MATERIAL_EXTRACTOR;
+        gadgetObject.GetComponent<Gadget>().id = gadgetIds.RISKY_MATERIAL_EXTRACTOR;
         gadgetObject.GetComponent<Extractor>().produces = itemProduced;
-        // gadgetObject.GetComponent<Extractor>().cycles = 3;
-        gadgetObject.GetComponent<Extractor>().produceMin = 3;
-        gadgetObject.GetComponent<Extractor>().produceMax = 6;
-        gadgetObject.GetComponent<Extractor>().hoursPerCycle = 15;
-        gadgetObject.GetComponent<Extractor>().infiniteCycles = true;
+        gadgetObject.GetComponent<Extractor>().cycles = 6;
+        gadgetObject.GetComponent<Extractor>().produceMin = 6;
+        gadgetObject.GetComponent<Extractor>().produceMax = 9;
+        gadgetObject.GetComponent<Extractor>().hoursPerCycle = 18;
+        // gadgetObject.GetComponent<Extractor>().infiniteCycles = true;
         // UnityEngine.Object.Destroy(gadgetObject.GetComponent<Extractor>());
 
         // REGISTER THE GADGET
-        Sprite GadgetIcon = CreateSprite(LoadImage("Assets.Gadgets.MaterialExtractor.materialExtract_icon.png"));
+        Sprite GadgetIcon = CreateSprite(LoadImage("Assets.Gadgets.RiskyMaterialExtractor.risky_materialExtract_icon.png"));
         LookupRegistry.RegisterGadget(new GadgetDefinition
         {
             prefab = gadgetObject, //Just use another, already, existing GameObject of a gadget. Tutorials about custom models ASAP.
-            id = gadgetIds.MATERIAL_EXTRACTOR,
+            id = gadgetIds.RISKY_MATERIAL_EXTRACTOR,
             pediaLink = PediaDirector.Id.EXTRACTORS,
-            blueprintCost = 1250,
-            buyCountLimit = 5,
+            blueprintCost = 2500,
+            buyCountLimit = 3,
             icon = GadgetIcon,
             craftCosts = new GadgetDefinition.CraftCost[]
             {
                 new GadgetDefinition.CraftCost
                 {
-                    amount = 20,
+                    amount = 35,
                     id = ModdedIds.plasticIds.PLASTIC_PLORT
                 },
                 new GadgetDefinition.CraftCost
                 {
-                    amount = 20,
+                    amount = 35,
                     id = ModdedIds.glueIds.GLUE_PLORT
                 },
                 new GadgetDefinition.CraftCost
                 {
-                    amount = 15,
+                    amount = 25,
                     id = ModdedIds.metalIds.METAL_PLORT
+                },
+                new GadgetDefinition.CraftCost
+                {
+                    amount = 15,
+                    id = Identifiable.Id.PRIMORDY_OIL_CRAFT
+                },
+                new GadgetDefinition.CraftCost
+                {
+                    amount = 5,
+                    id = itemIds.MATERIAL_SQUEEZE_CRAFT
                 }
             },
         });
 
         // ADD CLASS, TRANSLATION, BLUEPRINT, OTHER STUFF THAT ENDS IT OFF
-        Gadget.EXTRACTOR_CLASS.Add(gadgetIds.MATERIAL_EXTRACTOR);
+        Gadget.EXTRACTOR_CLASS.Add(gadgetIds.RISKY_MATERIAL_EXTRACTOR);
 
-        new GadgetTranslation(gadgetIds.MATERIAL_EXTRACTOR).SetNameTranslation("Material Extractor").SetDescriptionTranslation("An extractor that produces material resources, very useful. Last infinite cycles.");
+        new GadgetTranslation(gadgetIds.RISKY_MATERIAL_EXTRACTOR).SetNameTranslation("Risky Material Extractor").SetDescriptionTranslation("An extractor that is a little more risky then others but produces more, could produce dangerous plorts. Last 6 cycles.");
 
         // SaveRegistry.RegisterSerializableGadgetModel<Squeezer>(0);
         // DataModelRegistry.RegisterCustomGadgetModel(gadgetIds.SQUEEZER, typeof(Squeezer));
-        GadgetRegistry.RegisterBlueprintLock(gadgetIds.MATERIAL_EXTRACTOR, x => x.CreateBasicLock(gadgetIds.MATERIAL_EXTRACTOR, Gadget.Id.NONE, ProgressDirector.ProgressType.UNLOCK_LAB, 1f)); //Replace 'YOUR_ZONE' with the Zone you want.
+        GadgetRegistry.RegisterBlueprintLock(gadgetIds.RISKY_MATERIAL_EXTRACTOR, x => x.CreateBasicLock(gadgetIds.RISKY_MATERIAL_EXTRACTOR, Gadget.Id.NONE, ProgressDirector.ProgressType.UNLOCK_LAB, 3f)); //Replace 'YOUR_ZONE' with the Zone you want.
     }
 }
