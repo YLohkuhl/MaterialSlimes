@@ -36,7 +36,7 @@ class ProviderSlime // Slime name here
         {
             SlimeEat.FoodGroup.PLORTS
         };
-        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[13] // additional foods
+        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[16] // additional foods
         {
             ModdedIds.glueIds.GLUE_PLORT,
             ModdedIds.plasticIds.PLASTIC_PLORT,
@@ -50,8 +50,10 @@ class ProviderSlime // Slime name here
             ModdedIds.newbuckIds.NEWBUCK_PLORT,
             ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT,
             ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT,
-            // special dang it
-            ModdedIds.darkIds.DARK_SLIME
+            ModdedIds.soilIds.SOIL_PLORT,
+            ModdedIds.soilIds.ACTUAL_ROCK_PLORT,
+            ModdedIds.grassIds.GRASS_PLORT,
+            ModdedIds.grassIds.PLANT_PLORT,
         };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[0]; // favorites
         slimeDefinition.Diet.EatMap?.Clear(); // don't touch this unless your probably a little more advanced, idk

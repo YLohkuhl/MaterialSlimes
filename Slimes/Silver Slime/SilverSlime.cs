@@ -58,6 +58,9 @@ class SilverSlime
         slimeObject.GetComponent<SlimeAppearanceApplicator>().SlimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeEat>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<Identifiable>().id = ModdedIds.silverIds.SILVER_SLIME;
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<CrystalAppearance>());
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<CrystalSpikesLifecycle>());
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<CrystalSlimeLaunch>());
         UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
         // APPEARANCE
         var SilverColor = new Color32(192, 192, 192, 255);
@@ -78,6 +81,11 @@ class SilverSlime
                 material.SetFloat("_Shininess", 1f);
                 material.SetFloat("_Gloss", 1f);
                 slimeAppearanceStructure.DefaultMaterials[0] = material;
+                Material material2 = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(ModdedIds.glueIds.GLUE_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+                material2.SetColor("_TopColor", SilverColor);
+                material2.SetColor("_MiddleColor", LightSilverColor);
+                material2.SetColor("_BottomColor", SilverColor);
+                slimeAppearance.Structures[1].DefaultMaterials[0] = material2;
             }
         }
         SlimeExpressionFace[] expressionFaces = slimeAppearance.Face.ExpressionFaces;

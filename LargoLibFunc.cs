@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using static LargoLibrary.LargoGenerator;
 using ModdedIds;
+using SRML.Utils;
 
 class LargoLibFunc
 {
@@ -43,7 +44,13 @@ class LargoLibFunc
             LargoProperties.GENERATE_BASE_TRANSFORMATION,
             LargoProperties.GENERATE_ADDON_TRANSFORMATION,
         };
-        return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
+
+        GameObject largoObject = CreateLargo(slime1, slime2, largoId, array);
+        SlimeDefinition largoDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(largoId);
+        largoDefinition.Diet.FavoriteProductionCount = 2;
+        largoDefinition.Diet.RefreshEatMap(GameContext.Instance.SlimeDefinitions, largoDefinition);
+
+        return largoObject;
     }
 
     public static GameObject CreateLargoProp2(Identifiable.Id slime1, Identifiable.Id slime2, Identifiable.Id largoId)
@@ -59,7 +66,13 @@ class LargoLibFunc
             LargoProperties.GENERATE_BASE_TRANSFORMATION,
             LargoProperties.GENERATE_ADDON_TRANSFORMATION,
         };
-        return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
+
+        GameObject largoObject = CreateLargo(slime1, slime2, largoId, array);
+        SlimeDefinition largoDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(largoId);
+        largoDefinition.Diet.FavoriteProductionCount = 2;
+        largoDefinition.Diet.RefreshEatMap(GameContext.Instance.SlimeDefinitions, largoDefinition);
+
+        return largoObject;
     }
 
     public static GameObject CreateLargoProp3(Identifiable.Id slime1, Identifiable.Id slime2, Identifiable.Id largoId)
@@ -75,7 +88,13 @@ class LargoLibFunc
             LargoProperties.GENERATE_BASE_TRANSFORMATION,
             LargoProperties.GENERATE_ADDON_TRANSFORMATION
         };
-        return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
+
+        GameObject largoObject = CreateLargo(slime1, slime2, largoId, array);
+        SlimeDefinition largoDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(largoId);
+        largoDefinition.Diet.FavoriteProductionCount = 2;
+        largoDefinition.Diet.RefreshEatMap(GameContext.Instance.SlimeDefinitions, largoDefinition);
+
+        return largoObject;
     }
 
     public static GameObject CreateLargoProp4(Identifiable.Id slime1, Identifiable.Id slime2, Identifiable.Id largoId)
@@ -90,7 +109,13 @@ class LargoLibFunc
             LargoProperties.RECOLOR_SLIME1_MATS,
             LargoProperties.GENERATE_BASE_TRANSFORMATION
         };
-        return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
+
+        GameObject largoObject = CreateLargo(slime1, slime2, largoId, array);
+        SlimeDefinition largoDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(largoId);
+        largoDefinition.Diet.FavoriteProductionCount = 2;
+        largoDefinition.Diet.RefreshEatMap(GameContext.Instance.SlimeDefinitions, largoDefinition);
+
+        return largoObject;
     }
 
     public static GameObject CreateLargoProp5(Identifiable.Id slime1, Identifiable.Id slime2, Identifiable.Id largoId)
@@ -105,7 +130,13 @@ class LargoLibFunc
             LargoProperties.RECOLOR_SLIME1_MATS,
             LargoProperties.GENERATE_ADDON_TRANSFORMATION
         };
-        return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
+
+        GameObject largoObject = CreateLargo(slime1, slime2, largoId, array);
+        SlimeDefinition largoDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(largoId);
+        largoDefinition.Diet.FavoriteProductionCount = 2;
+        largoDefinition.Diet.RefreshEatMap(GameContext.Instance.SlimeDefinitions, largoDefinition);
+
+        return largoObject;
     }
 
     public static GameObject CreateLargoProp6(Identifiable.Id slime1, Identifiable.Id slime2, Identifiable.Id largoId)
@@ -120,7 +151,13 @@ class LargoLibFunc
             LargoProperties.REPLACE_BASE_MATS,
             LargoProperties.GENERATE_ADDON_TRANSFORMATION
         };
-        return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
+
+        GameObject largoObject = CreateLargo(slime1, slime2, largoId, array);
+        SlimeDefinition largoDefinition = SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(largoId);
+        largoDefinition.Diet.FavoriteProductionCount = 2;
+        largoDefinition.Diet.RefreshEatMap(GameContext.Instance.SlimeDefinitions, largoDefinition);
+
+        return largoObject;
     }
     // load largos
     static public void LoadLargos()
