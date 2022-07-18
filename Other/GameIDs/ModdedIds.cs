@@ -160,4 +160,11 @@ namespace ModdedIds
 
         public static readonly PediaDirector.Id GRASS_ENTRY;
     }
+    [EnumHolder]
+    internal class silverIds
+    {
+        public static readonly Identifiable.Id SILVER_SLIME;
+
+        public static readonly PediaDirector.Id SILVER_ENTRY;
+    }
 }

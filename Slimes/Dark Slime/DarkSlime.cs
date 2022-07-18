@@ -36,7 +36,7 @@ class DarkSlime
         {
             SlimeEat.FoodGroup.NONTARRGOLD_SLIMES
         };
-        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[18]
+        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[19]
         {
             // just additional support if it even works lol
             Identifiable.Id.GOLD_SLIME,
@@ -55,6 +55,7 @@ class DarkSlime
             ModdedIds.iceIds.ICE_SLIME,
             ModdedIds.soilIds.SOIL_SLIME,
             ModdedIds.grassIds.GRASS_SLIME,
+            ModdedIds.silverIds.SILVER_SLIME,
             // special dang it
             ModdedIds.newbuckIds.NEWBUCK_SLIME,
             ModdedIds.providerIds.PROVIDER_SLIME,

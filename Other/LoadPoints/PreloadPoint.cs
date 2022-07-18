@@ -39,7 +39,11 @@ class PreloadPoint
 
         TranslationPatcher.AddActorTranslation("l." + itemIds.ANONYMOUS_COMPOUND_CRAFT.ToString().ToLower(), "Anonymous Compound");
 
-        TranslationPatcher.AddActorTranslation("l." + itemIds.SPIRITUAL_MATERIAL_CRAFT.ToString().ToLower(), "Spiritual Material");
+        // TranslationPatcher.AddActorTranslation("l." + itemIds.SPIRITUAL_MATERIAL_CRAFT.ToString().ToLower(), "Spiritual Material");
+
+        TranslationPatcher.AddActorTranslation("l." + itemIds.SILVER_MIX_CRAFT.ToString().ToLower(), "Silver Mix");
+
+        TranslationPatcher.AddActorTranslation("l." + itemIds.SILVER_SHARD_CRAFT.ToString().ToLower(), "Silver Shard");
 
         // FRAGMENTS
 
@@ -355,6 +359,24 @@ class PreloadPoint
         Identifiable.NON_SLIMES_CLASS.Add(ModdedIds.grassIds.PLANT_PLORT);
 
 
+        //---------- SILVER (SLIMEPEDIA, TRANSLATION, ETC) ---------- \\
+
+
+        // START SLIMEPEDIA ENTRY: SILVER SLIME
+        PediaRegistry.RegisterIdentifiableMapping((PediaDirector.Id)1007, ModdedIds.silverIds.SILVER_SLIME);
+        PediaRegistry.RegisterIdentifiableMapping(ModdedIds.silverIds.SILVER_ENTRY, ModdedIds.silverIds.SILVER_SLIME);
+        PediaRegistry.SetPediaCategory(ModdedIds.silverIds.SILVER_ENTRY, (PediaRegistry.PediaCategory)1);
+        new SlimePediaEntryTranslation(ModdedIds.silverIds.SILVER_ENTRY)
+            .SetTitleTranslation("Silver Slime")
+            .SetIntroTranslation("Crystal slimes seemed to have gotten themselves an upgrade..!")
+            .SetDietTranslation("Slime Fossils, Metal Slimes, Concrete Slimes")
+            .SetFavoriteTranslation("Strange Diamond, Material Squeeze")
+            .SetSlimeologyTranslation("Ah, the Silver Slimes. A simple transformation of the Crystal Slimes from eating Silver Mix.. how wonderful. They produce Silver Shards or sometimes.. Dangerous Plorts, these Silver Shards can be used for certain things.. such as 'Silver Crystal Largos' or certain gadgets that require the item. Very useful, am I right? Tarrs don't eat Silver, although silver slimes will still run away.")
+            .SetRisksTranslation("Why would this slime have any risk? I mean.. it takes the form and behaviors of a Crystal Slime, which you SHOULD keep in mind. Although if we're talking about the Silver Slime here, it should be fine. Although 'Silver Crystal Largos' exist, keep that in mind.")
+            .SetPlortonomicsTranslation("They either produce Silver Shards or well- Dangerous Plorts. Not much to say about that, just use the resource wisely.");
+        // END SLIMEPEDIA ENTRY: SILVER SLIME
+
+
         // || PRETTY RARE SLIMEPEDIAS/PLORTS/ETC || \\
 
 
@@ -450,6 +472,7 @@ class PreloadPoint
         PediaRegistry.RegisterIdentifiableMapping(PediaDirector.Id.PLORTS, ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
         Identifiable.PLORT_CLASS.Add(ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
         Identifiable.NON_SLIMES_CLASS.Add(ModdedIds.darkIds.CIVILIZED_DARK_PLORT);
+
 
         //---------- NEWBUCK (SLIMEPEDIA, TRANSLATION, ETC) ---------- \\
 
@@ -897,7 +920,7 @@ class PreloadPoint
         TranslationPatcher.AddPediaTranslation("m.desc.anonymous_compound_entry", "This substance is unknown.. its been heard about that when fed to a Light or Dark slime, they start to act the opposite of their own behaviours. Maybe try it out?");
         // END SLIMEPEDIA ENTRY: ANONYMOUS COMPOUND
 
-        // --- SPIRITUAL MATERIAL
+        /* --- SPIRITUAL MATERIAL
 
         // START SLIMEPEDIA ENTRY: SPIRITUAL MATERIAL
         PediaRegistry.RegisterIdentifiableMapping(itemIds.SPIRITUAL_MATERIAL_ENTRY, itemIds.SPIRITUAL_MATERIAL_CRAFT);
@@ -905,9 +928,32 @@ class PreloadPoint
         PediaRegistry.SetPediaCategory(itemIds.SPIRITUAL_MATERIAL_ENTRY, (PediaRegistry.PediaCategory)2);
         new SlimePediaEntryTranslation(itemIds.SPIRITUAL_MATERIAL_ENTRY).SetTitleTranslation("Spiritual Material").SetIntroTranslation("The spirit/soul of a Material Slime.. how interesting.");
         TranslationPatcher.AddPediaTranslation("m.resource_type.spiritual_material_entry", "Slime Science Material");
-        TranslationPatcher.AddPediaTranslation("m.favored_by.spiritual_material_entry", "All slimes.");
         TranslationPatcher.AddPediaTranslation("m.desc.spiritual_material_entry", "A singular bottle, with a spirit of a Material Slime inside. Whatever slime eats this, will become whichever slime is stored inside. Why not set it free?");
-        // END SLIMEPEDIA ENTRY: SPIRITUAL MATERIAL
+        // END SLIMEPEDIA ENTRY: SPIRITUAL MATERIAL */
+
+        // --- SILVER MIX
+
+        // START SLIMEPEDIA ENTRY: SILVER MIX
+        PediaRegistry.RegisterIdentifiableMapping(itemIds.SILVER_MIX_ENTRY, itemIds.SILVER_MIX_CRAFT);
+        PediaRegistry.RegisterIdEntry(itemIds.SILVER_MIX_ENTRY, CreateSprite(LoadImage("Assets.Items.SilverMix.mix_icon.png")));
+        PediaRegistry.SetPediaCategory(itemIds.SILVER_MIX_ENTRY, (PediaRegistry.PediaCategory)2);
+        new SlimePediaEntryTranslation(itemIds.SILVER_MIX_ENTRY).SetTitleTranslation("Silver Mix").SetIntroTranslation("Ooo..! How shiny.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.silver_mix_entry", "Slime Science Material");
+        TranslationPatcher.AddPediaTranslation("m.favored_by.silver_mix_entry", "Crystal Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.desc.silver_mix_entry", "Oh how wonderful, a shiny substance that crystal slimes just love eating. When fed to them, they'll transform into a Material Slime called the 'Silver Slime'. Will you keep your Crystal Slime or get a Silver one instead?");
+        // END SLIMEPEDIA ENTRY: SILVER MIX
+
+        // --- SILVER SHARD
+
+        // START SLIMEPEDIA ENTRY: SILVER SHARD
+        PediaRegistry.RegisterIdentifiableMapping(itemIds.SILVER_SHARD_ENTRY, itemIds.SILVER_SHARD_CRAFT);
+        PediaRegistry.RegisterIdEntry(itemIds.SILVER_SHARD_ENTRY, CreateSprite(LoadImage("Assets.Items.SilverShard.shard_icon.png")));
+        PediaRegistry.SetPediaCategory(itemIds.SILVER_SHARD_ENTRY, (PediaRegistry.PediaCategory)2);
+        new SlimePediaEntryTranslation(itemIds.SILVER_SHARD_ENTRY).SetTitleTranslation("Silver Shard").SetIntroTranslation("Produced by a Silver Slime, now used to largo Silver Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.silver_shard_entry", "Slime Science Material, Provided by Provider Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.favored_by.silver_shard_entry", "Crystal Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.desc.silver_shard_entry", "A Silver Slime has given you a Silver Shard, how generous. These shards could make a 'Silver Crystal Largo' or be used for specific gadgets. Pretty useful if you ask me.");
+        // END SLIMEPEDIA ENTRY: SILVER SHARD
 
         return;
     }

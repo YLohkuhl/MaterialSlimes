@@ -22,8 +22,18 @@ internal class itemIds
 
     public static readonly PediaDirector.Id ANONYMOUS_COMPOUND_ENTRY;
 
-    // spiritual material
+    /* spiritual material
     public static readonly Identifiable.Id SPIRITUAL_MATERIAL_CRAFT;
 
-    public static readonly PediaDirector.Id SPIRITUAL_MATERIAL_ENTRY;
+    public static readonly PediaDirector.Id SPIRITUAL_MATERIAL_ENTRY;*/
+
+    // silver mix
+    public static readonly Identifiable.Id SILVER_MIX_CRAFT;
+
+    public static readonly PediaDirector.Id SILVER_MIX_ENTRY;
+
+    // silver shard
+    public static readonly Identifiable.Id SILVER_SHARD_CRAFT;
+
+    public static readonly PediaDirector.Id SILVER_SHARD_ENTRY;
 }

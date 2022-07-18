@@ -69,13 +69,19 @@ public class RiskyMaterialExtractor : GadgetModel, ISerializableModel
             },
             new Extractor.ProduceEntry() {
                 id = otherIds.DANGEROUS_PLORT,
-                weight = 3.8f,
+                weight = 4.5f,
                 restrictZone = false,
                 spawnFX = fx
             },
             new Extractor.ProduceEntry() {
                 id = itemIds.FERTILIZER_CRAFT,
-                weight = 3f,
+                weight = 3.5f,
+                restrictZone = false,
+                spawnFX = fx
+            },
+            new Extractor.ProduceEntry() {
+                id = itemIds.SILVER_MIX_CRAFT,
+                weight = 2.5f,
                 restrictZone = false,
                 spawnFX = fx
             },
@@ -84,23 +90,17 @@ public class RiskyMaterialExtractor : GadgetModel, ISerializableModel
                 weight = 0.5f,
                 restrictZone = false,
                 spawnFX = fx
-            },
-            new Extractor.ProduceEntry() {
-                id = itemIds.SPIRITUAL_MATERIAL_CRAFT,
-                weight = 0.5f,
-                restrictZone = false,
-                spawnFX = fx
-            },
+            }
         };
 
         // GADGET COMPONENTS
         gadgetObject.GetComponent<Gadget>().id = gadgetIds.RISKY_MATERIAL_EXTRACTOR;
         gadgetObject.GetComponent<Extractor>().produces = itemProduced;
-        gadgetObject.GetComponent<Extractor>().cycles = 6;
+        // gadgetObject.GetComponent<Extractor>().cycles = 6;
         gadgetObject.GetComponent<Extractor>().produceMin = 6;
         gadgetObject.GetComponent<Extractor>().produceMax = 9;
         gadgetObject.GetComponent<Extractor>().hoursPerCycle = 18;
-        // gadgetObject.GetComponent<Extractor>().infiniteCycles = true;
+        gadgetObject.GetComponent<Extractor>().infiniteCycles = true;
         // UnityEngine.Object.Destroy(gadgetObject.GetComponent<Extractor>());
 
         // REGISTER THE GADGET
@@ -115,6 +115,11 @@ public class RiskyMaterialExtractor : GadgetModel, ISerializableModel
             icon = GadgetIcon,
             craftCosts = new GadgetDefinition.CraftCost[]
             {
+                new GadgetDefinition.CraftCost
+                {
+                    amount = 50,
+                    id = itemIds.MATERIAL_SQUEEZE_CRAFT
+                },
                 new GadgetDefinition.CraftCost
                 {
                     amount = 35,
@@ -135,21 +140,16 @@ public class RiskyMaterialExtractor : GadgetModel, ISerializableModel
                     amount = 15,
                     id = Identifiable.Id.PRIMORDY_OIL_CRAFT
                 },
-                new GadgetDefinition.CraftCost
-                {
-                    amount = 5,
-                    id = itemIds.MATERIAL_SQUEEZE_CRAFT
-                }
             },
         });
 
         // ADD CLASS, TRANSLATION, BLUEPRINT, OTHER STUFF THAT ENDS IT OFF
         Gadget.EXTRACTOR_CLASS.Add(gadgetIds.RISKY_MATERIAL_EXTRACTOR);
 
-        new GadgetTranslation(gadgetIds.RISKY_MATERIAL_EXTRACTOR).SetNameTranslation("Risky Material Extractor").SetDescriptionTranslation("An extractor that is a little more risky then others but produces more, could produce dangerous plorts. Last 6 cycles.");
+        new GadgetTranslation(gadgetIds.RISKY_MATERIAL_EXTRACTOR).SetNameTranslation("Risky Material Extractor").SetDescriptionTranslation("An extractor that is a little more risky then others but produces more, could produce dangerous plorts. Last infinite cycles.");
 
         // SaveRegistry.RegisterSerializableGadgetModel<Squeezer>(0);
         // DataModelRegistry.RegisterCustomGadgetModel(gadgetIds.SQUEEZER, typeof(Squeezer));
-        GadgetRegistry.RegisterBlueprintLock(gadgetIds.RISKY_MATERIAL_EXTRACTOR, x => x.CreateBasicLock(gadgetIds.RISKY_MATERIAL_EXTRACTOR, Gadget.Id.NONE, ProgressDirector.ProgressType.UNLOCK_LAB, 3f)); //Replace 'YOUR_ZONE' with the Zone you want.
+        GadgetRegistry.RegisterBlueprintLock(gadgetIds.RISKY_MATERIAL_EXTRACTOR, x => x.CreateBasicLock(gadgetIds.RISKY_MATERIAL_EXTRACTOR, Gadget.Id.NONE, ProgressDirector.ProgressType.UNLOCK_LAB, 6f)); //Replace 'YOUR_ZONE' with the Zone you want.
     }
 }

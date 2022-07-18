@@ -12,4 +12,7 @@ internal class gadgetIds
 
     // risky material extractor
     public static readonly Gadget.Id RISKY_MATERIAL_EXTRACTOR;
+
+    // discovery 3000
+    public static readonly Gadget.Id DISCOVERY_3000;
 }

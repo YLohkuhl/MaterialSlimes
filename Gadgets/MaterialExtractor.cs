@@ -128,6 +128,6 @@ public class MaterialExtractor : GadgetModel, ISerializableModel
 
         // SaveRegistry.RegisterSerializableGadgetModel<Squeezer>(0);
         // DataModelRegistry.RegisterCustomGadgetModel(gadgetIds.SQUEEZER, typeof(Squeezer));
-        GadgetRegistry.RegisterBlueprintLock(gadgetIds.MATERIAL_EXTRACTOR, x => x.CreateBasicLock(gadgetIds.MATERIAL_EXTRACTOR, Gadget.Id.NONE, ProgressDirector.ProgressType.UNLOCK_LAB, 1f)); //Replace 'YOUR_ZONE' with the Zone you want.
+        GadgetRegistry.RegisterBlueprintLock(gadgetIds.MATERIAL_EXTRACTOR, x => x.CreateBasicLock(gadgetIds.MATERIAL_EXTRACTOR, Gadget.Id.NONE, ProgressDirector.ProgressType.UNLOCK_LAB, 3f)); //Replace 'YOUR_ZONE' with the Zone you want.
     }
 }

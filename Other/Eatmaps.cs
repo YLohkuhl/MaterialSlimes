@@ -20,13 +20,23 @@ namespace Eatmaps
                     minDrive = 1.5f
                 });
             }
-            __instance.EatMap.RemoveAll((x) => x.eats == itemIds.SPIRITUAL_MATERIAL_CRAFT);
+            /*__instance.EatMap.RemoveAll((x) => x.eats == itemIds.SPIRITUAL_MATERIAL_CRAFT); // spiritual craft
             __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
             {
                 becomesId = woodIds.WOOD_SLIME,
                 eats = itemIds.SPIRITUAL_MATERIAL_CRAFT,
-                minDrive = 1.5f
-            });
+                minDrive = 1
+            });*/
+            if (definition.IdentifiableId == Identifiable.Id.CRYSTAL_SLIME) // silver
+            {
+                __instance.EatMap.RemoveAll((x) => x.eats == itemIds.SILVER_MIX_CRAFT);
+                __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+                {
+                    becomesId = silverIds.SILVER_SLIME,
+                    eats = itemIds.SILVER_MIX_CRAFT,
+                    minDrive = 1
+                });
+            }
         }
     }
     [HarmonyPatch(typeof(SlimeDiet), "RefreshEatMap")]

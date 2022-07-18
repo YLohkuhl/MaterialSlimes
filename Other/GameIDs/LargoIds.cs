@@ -140,4 +140,8 @@ internal class largoIds
     // provider/newbuck
 
     // public static readonly Identifiable.Id PROVIDER_NEWBUCK_LARGO;
+
+    // crystal/silver
+
+    public static readonly Identifiable.Id SILVER_CRYSTAL_LARGO;
 }

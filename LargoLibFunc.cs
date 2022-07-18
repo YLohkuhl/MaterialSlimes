@@ -29,6 +29,7 @@ class LargoLibFunc
         public static Identifiable.Id Fragment = otherIds.FRAGMENT_SLIME;
         public static Identifiable.Id Soil = soilIds.SOIL_SLIME;
         public static Identifiable.Id Grass = grassIds.GRASS_SLIME;
+        public static Identifiable.Id Silver = silverIds.SILVER_SLIME;
     }
     // prop functiosn and all lol
     public static GameObject CreateLargoProp1(Identifiable.Id slime1, Identifiable.Id slime2, Identifiable.Id largoId)
@@ -102,6 +103,21 @@ class LargoLibFunc
             LargoProperties.GENERATE_LARGO_NAME,
             LargoProperties.REPLACE_SLIME1_MATS,
             LargoProperties.RECOLOR_SLIME1_MATS,
+            LargoProperties.GENERATE_ADDON_TRANSFORMATION
+        };
+        return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
+    }
+
+    public static GameObject CreateLargoProp6(Identifiable.Id slime1, Identifiable.Id slime2, Identifiable.Id largoId)
+    {
+        LargoProperties[] array = new LargoProperties[7]
+        {
+            LargoProperties.RECOLOR_BASE_MATS,
+            LargoProperties.REPLACE_BASE_MATS,
+            LargoProperties.SWAP_FACES,
+            LargoProperties.GENERATE_LARGO_NAME,
+            LargoProperties.RECOLOR_BASE_MATS,
+            LargoProperties.REPLACE_BASE_MATS,
             LargoProperties.GENERATE_ADDON_TRANSFORMATION
         };
         return LargoGenerator.CreateLargo(slime1, slime2, largoId, array);
@@ -255,5 +271,9 @@ class LargoLibFunc
         // provider/newbuck largos
         // had to use prop4s
         // CreateLargoProp4(SlimeID.Provider, SlimeID.Newbuck, largoIds.PROVIDER_NEWBUCK_LARGO);
+
+        // silver/crystal largos
+        // had to use prop6s
+        CreateLargoProp6(SlimeID.Silver, Identifiable.Id.CRYSTAL_SLIME, largoIds.SILVER_CRYSTAL_LARGO);
     }
 }

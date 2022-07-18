@@ -230,6 +230,10 @@ namespace Patches
                 list2.Add(itemIds.FERTILIZER_CRAFT);
                 list2.Add(itemIds.FERTILIZER_CRAFT);
 
+                list2.Add(itemIds.SILVER_MIX_CRAFT);
+                list2.Add(itemIds.SILVER_MIX_CRAFT);
+                list2.Add(itemIds.SILVER_MIX_CRAFT);
+
                 em.producesId = list2.RandomObject<Identifiable.Id>();
             }
 
@@ -350,7 +354,8 @@ namespace Patches
             }
         }
     }
-    [HarmonyPatch(typeof(SlimeEat), "EatAndTransform")]
+
+    /*[HarmonyPatch(typeof(SlimeEat), "EatAndTransform")]
     class EatMapPatch_SpiritualMaterial
     {
         static void Postfix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
@@ -408,6 +413,30 @@ namespace Patches
             if (em.eats == itemIds.SPIRITUAL_MATERIAL_CRAFT)
                 em.becomesId = list2.RandomObject();
             // em.becomesId = Randoms.SHARED.Pick(Identifiable.FRUIT_CLASS.Union(Identifiable.VEGGIE_CLASS).ToArray());
+        }
+    }*/
+
+    [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
+    internal class Patch_SlimeEatProduce_Silver
+    {
+        // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
+        private static bool Prefix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+
+            bool flag5 = __instance.slimeDefinition.Matches(ModdedIds.silverIds.SILVER_SLIME);
+            if (flag5)
+            {
+                List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+                list2.Add(otherIds.DANGEROUS_PLORT);
+
+                list2.Add(itemIds.SILVER_SHARD_CRAFT);
+                list2.Add(itemIds.SILVER_SHARD_CRAFT);
+
+                em.producesId = list2.RandomObject<Identifiable.Id>();
+            }
+
+            return true;
         }
     }
 }

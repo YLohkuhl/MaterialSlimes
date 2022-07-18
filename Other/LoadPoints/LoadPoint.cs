@@ -302,12 +302,37 @@ class LoadPoint
         AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, Grass_Grass_Object);
         LookupRegistry.RegisterVacEntry(ModdedIds.grassIds.GRASS_SLIME, GrassColor, CreateSprite(LoadImage("Assets.Slimes.Grass.grass_slime.png")));
         TranslationPatcher.AddPediaTranslation("t." + ModdedIds.grassIds.GRASS_SLIME.ToString().ToLower(), "Grass Slime");
-        LookupRegistry.RegisterVacEntry(VacItemDefinition.CreateVacItemDefinition(ModdedIds.grassIds.GRASS_SLIME, GrassColor, CreateSprite(LoadImage("Assets.Slimes.Soil.soil_slime.png"))));
+        LookupRegistry.RegisterVacEntry(VacItemDefinition.CreateVacItemDefinition(ModdedIds.grassIds.GRASS_SLIME, GrassColor, CreateSprite(LoadImage("Assets.Slimes.Grass.grass_slime.png"))));
 
         //And well, registering it!
         LookupRegistry.RegisterIdentifiablePrefab(Grass_Grass_Object);
         SlimeRegistry.RegisterSlimeDefinition(Grass_Grass_Definition);
         // END LOAD GRASS SLIME
+
+
+        //---------- SILVER ---------- \\
+
+
+        // START LOAD SILVER SLIME
+        (SlimeDefinition, GameObject) SilverTuple = SilverSlime.CreateSlime(ModdedIds.silverIds.SILVER_SLIME, "Silver Slime"); //Insert your own Id in the first argumeter
+
+        //Getting the SlimeDefinition and GameObject separated
+        SlimeDefinition Silver_Silver_Definition = SilverTuple.Item1;
+        GameObject Silver_Silver_Object = SilverTuple.Item2;
+
+        Silver_Silver_Object.GetComponent<Vacuumable>().size = Vacuumable.Size.NORMAL;
+
+        var SilverColor = new Color32(192, 192, 192, 255);
+
+        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, Silver_Silver_Object);
+        LookupRegistry.RegisterVacEntry(ModdedIds.silverIds.SILVER_SLIME, SilverColor, CreateSprite(LoadImage("Assets.Slimes.Silver.silver_slime.png")));
+        TranslationPatcher.AddPediaTranslation("t." + ModdedIds.silverIds.SILVER_SLIME.ToString().ToLower(), "Silver Slime");
+        LookupRegistry.RegisterVacEntry(VacItemDefinition.CreateVacItemDefinition(ModdedIds.silverIds.SILVER_SLIME, SilverColor, CreateSprite(LoadImage("Assets.Slimes.Silver.silver_slime.png"))));
+
+        //And well, registering it!
+        LookupRegistry.RegisterIdentifiablePrefab(Silver_Silver_Object);
+        SlimeRegistry.RegisterSlimeDefinition(Silver_Silver_Definition);
+        // END LOAD SILVER SLIME
 
 
         //./---------- PRETTY RARE MATERIAL SLIMES ----------\.\\
@@ -873,13 +898,16 @@ class LoadPoint
         MaterialSqueeze.LoadMaterialSqueeze();
         Fertilizer.LoadFertilizer();
         AnonymousCompound.LoadAnonymousCompound();
-        SpiritualMaterial.LoadSpiritualMaterial();
+        // SpiritualMaterial.LoadSpiritualMaterial();
+        SilverMix.LoadSilverMix();
+        SilverShard.LoadSilverShard();
     }
 
     static public void LoadGadgets()
     {
         MaterialExtractor.LoadMaterialExtractor();
         RiskyMaterialExtractor.LoadRiskyMaterialExtractor();
+        Discovery3000.LoadDiscovery3000();
     }
 }
 

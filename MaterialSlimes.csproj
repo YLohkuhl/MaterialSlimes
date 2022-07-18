@@ -69,12 +69,14 @@
     <None Include="Behaviours\BetterSlimeFlee.cs" />
     <Compile Include="Behaviours\BetterSlimeHover.cs" />
     <Compile Include="Behaviours\MaterialDecay.cs" />
+    <Compile Include="Gadgets\Discovery3000.cs" />
     <Compile Include="Gadgets\RiskyMaterialExtractor.cs" />
     <Compile Include="Gadgets\MaterialExtractor.cs" />
     <Compile Include="Items\AnonymousCompound.cs" />
     <Compile Include="Items\Fertilizer.cs" />
     <Compile Include="Items\MaterialSqueeze.cs" />
-    <Compile Include="Items\SpiritualMaterial.cs" />
+    <Compile Include="Items\SilverMix.cs" />
+    <Compile Include="Items\SilverShard.cs" />
     <Compile Include="Other\GameIDs\GadgetIds.cs" />
     <Compile Include="Other\OtherPlorts.cs" />
     <Compile Include="Other\Eatmaps.cs" />
@@ -107,6 +109,7 @@
     <Compile Include="Slimes\Provider Slime\ProviderSlime.cs" />
     <Compile Include="Slimes\Grass Slime\GrassSlime.cs" />
     <Compile Include="Slimes\Grass Slime\GrassSlimePlort.cs" />
+    <Compile Include="Slimes\Silver Slime\SilverSlime.cs" />
     <Compile Include="Slimes\Soil Slime\SoilSlimePlort.cs" />
     <Compile Include="Slimes\Soil Slime\SoilSlime.cs" />
     <Compile Include="Slimes\Wood Slime\WoodSlimePlort.cs" />
@@ -214,13 +217,14 @@
     <EmbeddedResource Include="Assets\Slimes\Light\uncivilized_light_slime.png" />
     <EmbeddedResource Include="Assets\Slimes\Dark\civilized_dark_slime_plort.png" />
     <EmbeddedResource Include="Assets\Gadgets\RiskyMaterialExtractor\risky_materialExtract_icon.png" />
-    <EmbeddedResource Include="Assets\Items\SpiritualMaterial\spiritual_icon.png" />
+    <EmbeddedResource Include="Assets\Gadgets\Discovery3000\discovery3000_icon.png" />
+    <EmbeddedResource Include="Assets\Items\SilverMix\mix_icon.png" />
+    <EmbeddedResource Include="Assets\Slimes\Silver\silver_slime.png" />
+    <EmbeddedResource Include="Assets\Items\SilverShard\shard_icon.png" />
     <Content Include="darkoutbreak1.png" />
     <Content Include="darkoutbreak2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Slimes\Neon Slime\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions />
 </Project>
