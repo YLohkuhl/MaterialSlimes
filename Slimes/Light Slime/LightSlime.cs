@@ -36,28 +36,32 @@ class LightSlime
         {
             SlimeEat.FoodGroup.PLORTS
         };
-        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[18]
+        foreach (Identifiable.Id plortIds in Identifiable.PLORT_CLASS)
         {
-            ModdedIds.glueIds.GLUE_PLORT,
-            ModdedIds.plasticIds.PLASTIC_PLORT,
-            ModdedIds.glassIds.GLASS_PLORT,
-            ModdedIds.metalIds.METAL_PLORT,
-            ModdedIds.woodIds.WOOD_PLORT,
-            ModdedIds.concreteIds.CONCRETE_PLORT,
-            ModdedIds.cottonIds.COTTON_PLORT,
-            ModdedIds.copperIds.COPPER_PLORT,
-            ModdedIds.iceIds.ICE_PLORT,
-            ModdedIds.newbuckIds.NEWBUCK_PLORT,
-            ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT,
-            ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT,
-            ModdedIds.soilIds.SOIL_PLORT,
-            ModdedIds.soilIds.ACTUAL_ROCK_PLORT,
-            ModdedIds.grassIds.GRASS_PLORT,
-            ModdedIds.grassIds.PLANT_PLORT,
-            // special dang it
-            ModdedIds.darkIds.DARK_SLIME,
-            ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME
-        };
+            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[]
+            {
+                plortIds,
+                ModdedIds.glueIds.GLUE_PLORT,
+                ModdedIds.plasticIds.PLASTIC_PLORT,
+                ModdedIds.glassIds.GLASS_PLORT,
+                ModdedIds.metalIds.METAL_PLORT,
+                ModdedIds.woodIds.WOOD_PLORT,
+                ModdedIds.concreteIds.CONCRETE_PLORT,
+                ModdedIds.cottonIds.COTTON_PLORT,
+                ModdedIds.copperIds.COPPER_PLORT,
+                ModdedIds.iceIds.ICE_PLORT,
+                ModdedIds.newbuckIds.NEWBUCK_PLORT,
+                ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT,
+                ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT,
+                ModdedIds.soilIds.SOIL_PLORT,
+                ModdedIds.soilIds.ACTUAL_ROCK_PLORT,
+                ModdedIds.grassIds.GRASS_PLORT,
+                ModdedIds.grassIds.PLANT_PLORT,
+                // special dang it
+                ModdedIds.darkIds.DARK_SLIME,
+                ModdedIds.lightIds.UNCIVILIZED_LIGHT_SLIME,
+            };
+        }
         slimeDefinition.Diet.Favorites = new Identifiable.Id[0];
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

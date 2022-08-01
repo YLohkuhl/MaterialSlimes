@@ -36,12 +36,16 @@ class NewbuckSlime // Slime name here
         {
             SlimeEat.FoodGroup.NONTARRGOLD_SLIMES
         };
-        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[3] // additional foods
+        foreach (Identifiable.Id slimeIds in Identifiable.SLIME_CLASS)
         {
-            Identifiable.Id.GOLD_SLIME,
-            Identifiable.Id.LUCKY_SLIME,
-            Identifiable.Id.TARR_SLIME
-        };
+            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[] // additional foods
+            {
+                slimeIds,
+                Identifiable.Id.GOLD_SLIME,
+                Identifiable.Id.LUCKY_SLIME,
+                Identifiable.Id.TARR_SLIME,
+            };
+        }
         slimeDefinition.Diet.Favorites = new Identifiable.Id[2] // favorites
         {
             Identifiable.Id.GOLD_SLIME,

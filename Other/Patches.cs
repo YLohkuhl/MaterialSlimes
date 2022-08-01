@@ -70,6 +70,15 @@ namespace Patches
                 list2.Add(ModdedIds.plasticIds.PLASTIC_SLIME);
                 list2.Add(ModdedIds.plasticIds.PLASTIC_SLIME);
 
+                // material slimes plus+
+                if (SRML.SRModLoader.IsModPresent("materialslimesplusog"))
+                {
+                    // liquid slimes
+                    // oil
+                    list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "OIL_SLIME"));
+                    list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "OIL_SLIME"));
+                }
+
                 // exclusive sliemmssdnashf (1-2%(?))
                 list2.Add(ModdedIds.lightIds.LIGHT_SLIME);
                 list2.Add(ModdedIds.darkIds.DARK_SLIME);
@@ -233,6 +242,11 @@ namespace Patches
                 list2.Add(itemIds.SILVER_MIX_CRAFT);
                 list2.Add(itemIds.SILVER_MIX_CRAFT);
                 list2.Add(itemIds.SILVER_MIX_CRAFT);
+
+                /* MATERIAL SLIMES PLUS+ ITEMS
+                list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
+                list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
+                list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));*/
 
                 em.producesId = list2.RandomObject<Identifiable.Id>();
             }

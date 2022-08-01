@@ -36,25 +36,29 @@ class ProviderSlime // Slime name here
         {
             SlimeEat.FoodGroup.PLORTS
         };
-        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[16] // additional foods
+        foreach (Identifiable.Id plortIds in Identifiable.PLORT_CLASS)
         {
-            ModdedIds.glueIds.GLUE_PLORT,
-            ModdedIds.plasticIds.PLASTIC_PLORT,
-            ModdedIds.glassIds.GLASS_PLORT,
-            ModdedIds.metalIds.METAL_PLORT,
-            ModdedIds.woodIds.WOOD_PLORT,
-            ModdedIds.concreteIds.CONCRETE_PLORT,
-            ModdedIds.cottonIds.COTTON_PLORT,
-            ModdedIds.copperIds.COPPER_PLORT,
-            ModdedIds.iceIds.ICE_PLORT,
-            ModdedIds.newbuckIds.NEWBUCK_PLORT,
-            ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT,
-            ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT,
-            ModdedIds.soilIds.SOIL_PLORT,
-            ModdedIds.soilIds.ACTUAL_ROCK_PLORT,
-            ModdedIds.grassIds.GRASS_PLORT,
-            ModdedIds.grassIds.PLANT_PLORT,
-        };
+            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[] // additional foods
+            {
+                plortIds,
+                ModdedIds.glueIds.GLUE_PLORT,
+                ModdedIds.plasticIds.PLASTIC_PLORT,
+                ModdedIds.glassIds.GLASS_PLORT,
+                ModdedIds.metalIds.METAL_PLORT,
+                ModdedIds.woodIds.WOOD_PLORT,
+                ModdedIds.concreteIds.CONCRETE_PLORT,
+                ModdedIds.cottonIds.COTTON_PLORT,
+                ModdedIds.copperIds.COPPER_PLORT,
+                ModdedIds.iceIds.ICE_PLORT,
+                ModdedIds.newbuckIds.NEWBUCK_PLORT,
+                ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT,
+                ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT,
+                ModdedIds.soilIds.SOIL_PLORT,
+                ModdedIds.soilIds.ACTUAL_ROCK_PLORT,
+                ModdedIds.grassIds.GRASS_PLORT,
+                ModdedIds.grassIds.PLANT_PLORT,
+            };
+        }
         slimeDefinition.Diet.Favorites = new Identifiable.Id[0]; // favorites
         slimeDefinition.Diet.EatMap?.Clear(); // don't touch this unless your probably a little more advanced, idk
         // TARR SUPPORT (this is if you want it)
