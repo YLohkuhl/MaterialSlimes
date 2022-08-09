@@ -36,36 +36,32 @@ class UncivilizedLightSlime
         {
             SlimeEat.FoodGroup.NONTARRGOLD_SLIMES
         };
-        foreach (Identifiable.Id slimeIds in Identifiable.SLIME_CLASS)
+        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[]
         {
-            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[]
-            {
-                // just additional support if it even works lol
-                Identifiable.Id.GOLD_SLIME,
-                Identifiable.Id.TARR_SLIME,
-                slimeIds,
-                // other?
-                otherIds.FRAGMENT_SLIME,
-                // material slimes eashfjs
-                ModdedIds.glueIds.GLUE_SLIME,
-                ModdedIds.plasticIds.PLASTIC_SLIME,
-                ModdedIds.glassIds.GLASS_SLIME,
-                ModdedIds.metalIds.METAL_SLIME,
-                ModdedIds.woodIds.WOOD_SLIME,
-                ModdedIds.concreteIds.CONCRETE_SLIME,
-                ModdedIds.cottonIds.COTTON_SLIME,
-                ModdedIds.copperIds.COPPER_SLIME,
-                ModdedIds.iceIds.ICE_SLIME,
-                ModdedIds.soilIds.SOIL_SLIME,
-                ModdedIds.grassIds.GRASS_SLIME,
-                ModdedIds.silverIds.SILVER_SLIME,
-                // special dang it
-                ModdedIds.newbuckIds.NEWBUCK_SLIME,
-                ModdedIds.providerIds.PROVIDER_SLIME,
-                ModdedIds.lightIds.LIGHT_SLIME,
-                ModdedIds.darkIds.CIVILIZED_DARK_SLIME,
-            };
-        }
+            // just additional support if it even works lol
+            Identifiable.Id.GOLD_SLIME,
+            Identifiable.Id.TARR_SLIME,
+            // other?
+            otherIds.FRAGMENT_SLIME,
+            // material slimes eashfjs
+            ModdedIds.glueIds.GLUE_SLIME,
+            ModdedIds.plasticIds.PLASTIC_SLIME,
+            ModdedIds.glassIds.GLASS_SLIME,
+            ModdedIds.metalIds.METAL_SLIME,
+            ModdedIds.woodIds.WOOD_SLIME,
+            ModdedIds.concreteIds.CONCRETE_SLIME,
+            ModdedIds.cottonIds.COTTON_SLIME,
+            ModdedIds.copperIds.COPPER_SLIME,
+            ModdedIds.iceIds.ICE_SLIME,
+            ModdedIds.soilIds.SOIL_SLIME,
+            ModdedIds.grassIds.GRASS_SLIME,
+            ModdedIds.silverIds.SILVER_SLIME,
+            // special dang it
+            ModdedIds.newbuckIds.NEWBUCK_SLIME,
+            ModdedIds.providerIds.PROVIDER_SLIME,
+            ModdedIds.lightIds.LIGHT_SLIME,
+            ModdedIds.darkIds.CIVILIZED_DARK_SLIME,
+        };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[0];
         slimeDefinition.Diet.EatMap?.Clear();
         slimeDefinition.CanLargofy = false;

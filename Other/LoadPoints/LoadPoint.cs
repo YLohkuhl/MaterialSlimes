@@ -890,6 +890,24 @@ class LoadPoint
         DroneRegistry.RegisterBasicTarget(ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT);
         // END LOAD RICHER NEWBUCK PLORT
 
+
+        //---------- PROVIDER ---------- \\
+
+
+        // START LOAD PROVIDED PLORT
+        GameObject ProvidedPlortTuple = ProviderSlimePlort.ProvidedPlort();
+
+        GameObject ProvidedPlort_ProvidedPlort_Object = ProvidedPlortTuple;
+
+        AmmoRegistry.RegisterAmmoPrefab(PlayerState.AmmoMode.DEFAULT, ProvidedPlort_ProvidedPlort_Object);
+        // Icon that is below is just a placeholder. You can change it to anything or add your own! 
+        Sprite ProvidedPlortIcon = CreateSprite(LoadImage("Assets.Slimes.Provider.provider_slime.png"));
+        Color ProviderColor = new Color32(248, 222, 126, 255);
+        LookupRegistry.RegisterVacEntry(VacItemDefinition.CreateVacItemDefinition(ModdedIds.providerIds.PROVIDED_PLORT, ProviderColor, ProvidedPlortIcon));
+        AmmoRegistry.RegisterSiloAmmo(x => x == SiloStorage.StorageType.NON_SLIMES || x == SiloStorage.StorageType.PLORT, ModdedIds.providerIds.PROVIDED_PLORT);
+        DroneRegistry.RegisterBasicTarget(ModdedIds.providerIds.PROVIDED_PLORT);
+        // END LOAD PROVIDED PLORT
+
         return;
     }
 

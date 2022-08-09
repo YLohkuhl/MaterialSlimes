@@ -108,7 +108,8 @@ class PlasticSlime
         {
             Top = new Color32(255, 254, 247, 255),
             Middle = new Color32(255, 250, 250, 255),
-            Bottom = new Color32(255, 254, 247, 255)
+            Bottom = new Color32(255, 254, 247, 255),
+            Ammo = new Color32(255, 250, 250, 255)
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.plasticIds.PLASTIC_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Plastic.plastic_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

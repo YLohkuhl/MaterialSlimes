@@ -62,22 +62,39 @@ class WoodSlime
         // APPEARANCE
         SlimeAppearance slimeAppearance = (SlimeAppearance)PrefabUtils.DeepCopyObject(honeySlimeDefinition.AppearancesDefault[0]);
         slimeDefinition.AppearancesDefault[0] = slimeAppearance;
-        SlimeAppearanceStructure[] structures = slimeAppearance.Structures;
-        foreach (SlimeAppearanceStructure slimeAppearanceStructure in structures)
+
+        if (!Configs.Values.OLD_APPEARANCES)
         {
-            Material[] defaultMaterials = slimeAppearanceStructure.DefaultMaterials;
-            if (defaultMaterials != null && defaultMaterials.Length != 0)
+            slimeAppearance.Structures = new SlimeAppearanceStructure[]
             {
-                Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.HONEY_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
-                material.SetColor("_TopColor", new Color32(150, 111, 51, 255));
-                material.SetColor("_MiddleColor", new Color32(205, 170, 125, 255));
-                material.SetColor("_BottomColor", new Color32(150, 111, 51, 255));
-                material.SetColor("_SpecColor", new Color32(205, 170, 125, 255));
-                material.SetFloat("_Shininess", 1f);
-                material.SetFloat("_Gloss", 1f);
-                slimeAppearanceStructure.DefaultMaterials[0] = material;
-            }
+                new SlimeAppearanceStructure(honeySlimeDefinition.GetAppearanceForSet(SlimeAppearance.AppearanceSaveSet.CLASSIC).Structures[0])
+            };
+
+            Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.HONEY_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+            material.SetColor("_TopColor", new Color32(150, 111, 51, 255));
+            material.SetColor("_MiddleColor", new Color32(205, 170, 125, 255));
+            material.SetColor("_BottomColor", new Color32(150, 111, 51, 255));
+            material.SetColor("_SpecColor", new Color32(205, 170, 125, 255));
+            material.SetFloat("_Shininess", 1f);
+            material.SetFloat("_Gloss", 1f);
+            slimeAppearance.Structures[0].DefaultMaterials[0] = material;
+        } else if (Configs.Values.OLD_APPEARANCES)
+        {
+            Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.HONEY_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+            material.SetColor("_TopColor", new Color32(150, 111, 51, 255));
+            material.SetColor("_MiddleColor", new Color32(205, 170, 125, 255));
+            material.SetColor("_BottomColor", new Color32(150, 111, 51, 255));
+            material.SetColor("_SpecColor", new Color32(205, 170, 125, 255));
+            material.SetFloat("_Shininess", 1f);
+            material.SetFloat("_Gloss", 1f);
+            slimeAppearance.Structures[0].DefaultMaterials[0] = material;
+            Material material2 = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.HONEY_SLIME).AppearancesDefault[0].Structures[1].DefaultMaterials[0]);
+            material2.SetColor("_TopColor", new Color32(150, 111, 51, 255));
+            material2.SetColor("_MiddleColor", new Color32(205, 170, 125, 255));
+            material2.SetColor("_BottomColor", new Color32(150, 111, 51, 255));
+            slimeAppearance.Structures[1].DefaultMaterials[0] = material2;
         }
+
         SlimeExpressionFace[] expressionFaces = slimeAppearance.Face.ExpressionFaces;
         for (int k = 0; k < expressionFaces.Length; k++)
         {
@@ -105,7 +122,8 @@ class WoodSlime
         {
             Top = new Color32(150, 111, 51, 255),
             Middle = new Color32(205, 170, 125, 255),
-            Bottom = new Color32(150, 111, 51, 255)
+            Bottom = new Color32(150, 111, 51, 255),
+            Ammo = new Color32(205, 170, 125, 255)
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.woodIds.WOOD_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Wood.wood_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

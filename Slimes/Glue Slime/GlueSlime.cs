@@ -53,13 +53,16 @@ class GlueSlime
         slimeDefinition.Name = "Glue Slime";
         slimeDefinition.IdentifiableId = ModdedIds.glueIds.GLUE_SLIME;
         // OBJECT
-        GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PINK_SLIME));
+        GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PUDDLE_SLIME));
         slimeObject.name = "slimeGlue";
         slimeObject.GetComponent<PlayWithToys>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeAppearanceApplicator>().SlimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeEat>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<Identifiable>().id = ModdedIds.glueIds.GLUE_SLIME;
         slimeObject.AddComponent<PuddleSlimeScoot>();
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<GotoWater>());
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<SlimeEatWater>());
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<DestroyOnTouching>());
         // slimeObject.AddComponent<DestroyOnWater>();
         // UnityEngine.Object.Destroy(slimeObject.GetComponent<SlimeEatWater>());
         UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
@@ -109,7 +112,8 @@ class GlueSlime
         {
             Top = new Color32(255, 255, 255, 255),
             Middle = new Color32(255, 255, 255, 255),
-            Bottom = new Color32(255, 255, 255, 255)
+            Bottom = new Color32(255, 255, 255, 255),
+            Ammo = new Color32(255, 255, 255, 255)
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.glueIds.GLUE_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Glue.glue_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

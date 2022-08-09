@@ -105,7 +105,8 @@ class CottonSlime
         {
             Top = new Color32(230, 226, 222, 255),
             Middle = new Color32(230, 226, 222, 255),
-            Bottom = new Color32(230, 226, 222, 255)
+            Bottom = new Color32(230, 226, 222, 255),
+            Ammo = new Color32(230, 226, 222, 255)
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.cottonIds.COTTON_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Cotton.cotton_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

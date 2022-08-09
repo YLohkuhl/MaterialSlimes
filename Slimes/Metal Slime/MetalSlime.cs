@@ -108,7 +108,8 @@ class MetalSlime
         {
             Top = Color.grey,
             Middle = Color.black,
-            Bottom = Color.grey
+            Bottom = Color.grey,
+            Ammo = Color.grey
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.metalIds.METAL_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Metal.metal_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

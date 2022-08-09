@@ -110,7 +110,8 @@ class ConcreteSlime
         {
             Top = Color.grey,
             Middle = Color.white,
-            Bottom = Color.grey
+            Bottom = Color.grey,
+            Ammo = Color.grey
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.concreteIds.CONCRETE_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Concrete.concrete_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

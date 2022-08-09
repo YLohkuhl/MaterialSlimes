@@ -27,6 +27,16 @@ namespace Eatmaps
                 eats = itemIds.SPIRITUAL_MATERIAL_CRAFT,
                 minDrive = 1
             });*/
+            if (definition.IdentifiableId != providerIds.PROVIDER_SLIME && definition.IdentifiableId != largoIds.PROVIDER_NEWBUCK_LARGO && definition.IdentifiableId != newbuckIds.NEWBUCK_SLIME)
+            {
+                __instance.EatMap.RemoveAll((x) => x.eats == providerIds.PROVIDED_PLORT); // provider
+                __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+                {
+                    producesId = Identifiable.Id.CARROT_VEGGIE,
+                    eats = providerIds.PROVIDED_PLORT,
+                    minDrive = 1
+                });
+            }
             if (definition.IdentifiableId == Identifiable.Id.CRYSTAL_SLIME) // silver
             {
                 __instance.EatMap.RemoveAll((x) => x.eats == itemIds.SILVER_MIX_CRAFT);
@@ -35,6 +45,17 @@ namespace Eatmaps
                     becomesId = silverIds.SILVER_SLIME,
                     eats = itemIds.SILVER_MIX_CRAFT,
                     minDrive = 1
+                });
+            }
+            if (definition.IdentifiableId == glassIds.GLASS_SLIME) // glass
+            {
+                __instance.EatMap.RemoveAll((x) => x.eats == Identifiable.Id.GLASS_SHARD_CRAFT);
+                __instance.EatMap.Add(new SlimeDiet.EatMapEntry()
+                {
+                    producesId = glassIds.GLASS_SLIME,
+                    eats = Identifiable.Id.GLASS_SHARD_CRAFT,
+                    driver = SlimeEmotions.Emotion.AGITATION,
+                    minDrive = 1.5f
                 });
             }
         }

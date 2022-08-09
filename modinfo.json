@@ -3,8 +3,5 @@
   "name": "Material Slimes",
   "author": "FruitsyOG",
   "description": "This mod adds 20+ new slimes which are based off of materials! More information is listed on the mod page via NexusMods or Gamebanana.",
-  "version": "3.0.1",
-  "load_after": [
-    "largolibrary"
-  ]
+  "version": "3.1.0"
 }

@@ -36,16 +36,12 @@ class NewbuckSlime // Slime name here
         {
             SlimeEat.FoodGroup.NONTARRGOLD_SLIMES
         };
-        foreach (Identifiable.Id slimeIds in Identifiable.SLIME_CLASS)
+        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[] // additional foods
         {
-            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[] // additional foods
-            {
-                slimeIds,
-                Identifiable.Id.GOLD_SLIME,
-                Identifiable.Id.LUCKY_SLIME,
-                Identifiable.Id.TARR_SLIME,
-            };
-        }
+            Identifiable.Id.GOLD_SLIME,
+            Identifiable.Id.LUCKY_SLIME,
+            Identifiable.Id.TARR_SLIME,
+        };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[2] // favorites
         {
             Identifiable.Id.GOLD_SLIME,
@@ -76,23 +72,42 @@ class NewbuckSlime // Slime name here
         Color DarkerNewbuckColor = new Color32(158, 63, 20, 255);
         SlimeAppearance slimeAppearance = (SlimeAppearance)PrefabUtils.DeepCopyObject(newbuckDefinition.AppearancesDefault[0]);
         slimeDefinition.AppearancesDefault[0] = slimeAppearance;
-        SlimeAppearanceStructure[] structures = slimeAppearance.Structures;
-        foreach (SlimeAppearanceStructure slimeAppearanceStructure in structures)
+
+        if (!Configs.Values.OLD_APPEARANCES)
         {
-            Material[] defaultMaterials = slimeAppearanceStructure.DefaultMaterials;
-            if (defaultMaterials != null && defaultMaterials.Length != 0)
+            slimeAppearance.Structures = new SlimeAppearanceStructure[]
             {
-                // SET MATERIALS HERE!! Btw above is if you want color vars-
-                Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.QUANTUM_TABBY_LARGO).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
-                material.SetColor("_TopColor", NewbuckColor);
-                material.SetColor("_MiddleColor", NewbuckColor);
-                material.SetColor("_BottomColor", DarkerNewbuckColor);
-                material.SetColor("_SpecColor", DarkerNewbuckColor);
-                material.SetFloat("_Shininess", 1f); // idk what these are for tbh, but you can use it if you want
-                material.SetFloat("_Gloss", 1f); // same thing here lol
-                slimeAppearanceStructure.DefaultMaterials[0] = material;
-            }
+            new SlimeAppearanceStructure(slimeAppearance.Structures[0]),
+            new SlimeAppearanceStructure(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.LUCKY_SLIME).GetAppearanceForSet(SlimeAppearance.AppearanceSaveSet.CLASSIC).Structures[2])
+            };
+
+            // SET MATERIALS HERE!! Btw above is if you want color vars-
+            Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.QUANTUM_TABBY_LARGO).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+            material.SetColor("_TopColor", NewbuckColor);
+            material.SetColor("_MiddleColor", NewbuckColor);
+            material.SetColor("_BottomColor", DarkerNewbuckColor);
+            material.SetColor("_SpecColor", DarkerNewbuckColor);
+            material.SetFloat("_Shininess", 1f); // idk what these are for tbh, but you can use it if you want
+            material.SetFloat("_Gloss", 1f); // same thing here lol
+            slimeAppearance.Structures[0].DefaultMaterials[0] = material;
+            Material material2 = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.QUANTUM_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+            material2.SetColor("_TopColor", NewbuckColor);
+            material2.SetColor("_MiddleColor", NewbuckColor);
+            material2.SetColor("_BottomColor", DarkerNewbuckColor);
+            slimeAppearance.Structures[1].DefaultMaterials[0] = material2;
+        } else if (Configs.Values.OLD_APPEARANCES)
+        {
+            // SET MATERIALS HERE!! Btw above is if you want color vars-
+            Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.QUANTUM_TABBY_LARGO).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+            material.SetColor("_TopColor", NewbuckColor);
+            material.SetColor("_MiddleColor", NewbuckColor);
+            material.SetColor("_BottomColor", DarkerNewbuckColor);
+            material.SetColor("_SpecColor", DarkerNewbuckColor);
+            material.SetFloat("_Shininess", 1f); // idk what these are for tbh, but you can use it if you want
+            material.SetFloat("_Gloss", 1f); // same thing here lol
+            slimeAppearance.Structures[0].DefaultMaterials[0] = material;
         }
+
         SlimeExpressionFace[] expressionFaces = slimeAppearance.Face.ExpressionFaces;
         for (int k = 0; k < expressionFaces.Length; k++)
         {
@@ -120,7 +135,8 @@ class NewbuckSlime // Slime name here
         {
             Top = NewbuckColor,
             Middle = DarkerNewbuckColor,
-            Bottom = NewbuckColor
+            Bottom = NewbuckColor,
+            Ammo = DarkerNewbuckColor
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.newbuckIds.NEWBUCK_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Newbuck.newbuck_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

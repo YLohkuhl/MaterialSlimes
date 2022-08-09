@@ -134,6 +134,8 @@ namespace ModdedIds
     [EnumHolder]
     internal class providerIds
     {
+        public static readonly Identifiable.Id PROVIDED_PLORT;
+
         public static readonly Identifiable.Id PROVIDER_SLIME;
 
         public static readonly PediaDirector.Id PROVIDER_ENTRY;

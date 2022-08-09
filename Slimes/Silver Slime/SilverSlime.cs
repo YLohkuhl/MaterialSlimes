@@ -115,7 +115,8 @@ class SilverSlime
         {
             Top = SilverColor,
             Middle = SilverColor,
-            Bottom = SilverColor
+            Bottom = SilverColor,
+            Ammo = SilverColor
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.silverIds.SILVER_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Silver.silver_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

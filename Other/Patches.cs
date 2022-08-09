@@ -127,7 +127,7 @@ namespace Patches
         }
     }
 
-    [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
+    /*[HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
     internal class Patch_SlimeEatProduce_Provider
     {
         // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
@@ -243,17 +243,17 @@ namespace Patches
                 list2.Add(itemIds.SILVER_MIX_CRAFT);
                 list2.Add(itemIds.SILVER_MIX_CRAFT);
 
-                /* MATERIAL SLIMES PLUS+ ITEMS
-                list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
-                list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
-                list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));*/
+                // MATERIAL SLIMES PLUS+ ITEMS
+                // list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
+                // list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
+                // list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
 
                 em.producesId = list2.RandomObject<Identifiable.Id>();
             }
 
             return true;
         }
-    }
+    }*/
 
     [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
     internal class Patch_SlimeEatProduce_SoilAndGrass
@@ -446,6 +446,154 @@ namespace Patches
 
                 list2.Add(itemIds.SILVER_SHARD_CRAFT);
                 list2.Add(itemIds.SILVER_SHARD_CRAFT);
+
+                em.producesId = list2.RandomObject<Identifiable.Id>();
+            }
+
+            return true;
+        }
+    }
+    [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
+    internal class Patch_EatAndProduce_ProvidedPlort
+    {
+        // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
+        private static bool Prefix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+            List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+            // VEGGIES
+
+            list2.Add(Identifiable.Id.CARROT_VEGGIE);
+            list2.Add(Identifiable.Id.CARROT_VEGGIE);
+            list2.Add(Identifiable.Id.CARROT_VEGGIE);
+            list2.Add(Identifiable.Id.CARROT_VEGGIE);
+            list2.Add(Identifiable.Id.CARROT_VEGGIE);
+
+            list2.Add(Identifiable.Id.BEET_VEGGIE);
+            list2.Add(Identifiable.Id.BEET_VEGGIE);
+            list2.Add(Identifiable.Id.BEET_VEGGIE);
+            list2.Add(Identifiable.Id.BEET_VEGGIE);
+            list2.Add(Identifiable.Id.BEET_VEGGIE);
+
+            list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+            list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+            list2.Add(Identifiable.Id.OCAOCA_VEGGIE);
+
+            list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+            list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+            list2.Add(Identifiable.Id.PARSNIP_VEGGIE);
+
+            list2.Add(Identifiable.Id.ONION_VEGGIE);
+            list2.Add(Identifiable.Id.ONION_VEGGIE);
+            list2.Add(Identifiable.Id.ONION_VEGGIE);
+
+            list2.Add(Identifiable.Id.GINGER_VEGGIE);
+
+            // FRUITS
+
+            list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+            list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+            list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+            list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+            list2.Add(Identifiable.Id.CUBERRY_FRUIT);
+
+            list2.Add(Identifiable.Id.POGO_FRUIT);
+            list2.Add(Identifiable.Id.POGO_FRUIT);
+            list2.Add(Identifiable.Id.POGO_FRUIT);
+            list2.Add(Identifiable.Id.POGO_FRUIT);
+            list2.Add(Identifiable.Id.POGO_FRUIT);
+
+            list2.Add(Identifiable.Id.LEMON_FRUIT);
+            list2.Add(Identifiable.Id.LEMON_FRUIT);
+            list2.Add(Identifiable.Id.LEMON_FRUIT);
+
+            list2.Add(Identifiable.Id.MANGO_FRUIT);
+            list2.Add(Identifiable.Id.MANGO_FRUIT);
+            list2.Add(Identifiable.Id.MANGO_FRUIT);
+
+            list2.Add(Identifiable.Id.PEAR_FRUIT);
+            list2.Add(Identifiable.Id.PEAR_FRUIT);
+            list2.Add(Identifiable.Id.PEAR_FRUIT);
+
+            list2.Add(Identifiable.Id.KOOKADOBA_FRUIT);
+
+            // MEAT
+            list2.Add(Identifiable.Id.HEN);
+            list2.Add(Identifiable.Id.HEN);
+            list2.Add(Identifiable.Id.HEN);
+            list2.Add(Identifiable.Id.HEN);
+            list2.Add(Identifiable.Id.HEN);
+
+            list2.Add(Identifiable.Id.STONY_HEN);
+            list2.Add(Identifiable.Id.STONY_HEN);
+            list2.Add(Identifiable.Id.STONY_HEN);
+            list2.Add(Identifiable.Id.STONY_HEN);
+            list2.Add(Identifiable.Id.STONY_HEN);
+
+            list2.Add(Identifiable.Id.BRIAR_HEN);
+            list2.Add(Identifiable.Id.BRIAR_HEN);
+            list2.Add(Identifiable.Id.BRIAR_HEN);
+            list2.Add(Identifiable.Id.BRIAR_HEN);
+            list2.Add(Identifiable.Id.BRIAR_HEN);
+
+            list2.Add(Identifiable.Id.PAINTED_HEN);
+            list2.Add(Identifiable.Id.PAINTED_HEN);
+            list2.Add(Identifiable.Id.PAINTED_HEN);
+
+            list2.Add(Identifiable.Id.ROOSTER);
+            list2.Add(Identifiable.Id.ROOSTER);
+            list2.Add(Identifiable.Id.ROOSTER);
+
+            list2.Add(Identifiable.Id.ELDER_HEN);
+            list2.Add(Identifiable.Id.ELDER_HEN);
+            list2.Add(Identifiable.Id.ELDER_HEN);
+
+            list2.Add(Identifiable.Id.ELDER_ROOSTER);
+            list2.Add(Identifiable.Id.ELDER_ROOSTER);
+            list2.Add(Identifiable.Id.ELDER_ROOSTER);
+
+            // SPECIAL ITEMS
+            list2.Add(itemIds.MATERIAL_SQUEEZE_CRAFT);
+            list2.Add(itemIds.MATERIAL_SQUEEZE_CRAFT);
+            list2.Add(itemIds.MATERIAL_SQUEEZE_CRAFT);
+
+            list2.Add(itemIds.FERTILIZER_CRAFT);
+            list2.Add(itemIds.FERTILIZER_CRAFT);
+            list2.Add(itemIds.FERTILIZER_CRAFT);
+
+            list2.Add(itemIds.SILVER_MIX_CRAFT);
+            list2.Add(itemIds.SILVER_MIX_CRAFT);
+            list2.Add(itemIds.SILVER_MIX_CRAFT);
+
+            /* MATERIAL SLIMES PLUS+ ITEMS
+            list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
+            list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));
+            list2.Add((Identifiable.Id)Enum.Parse(typeof(Identifiable.Id), "DECOMPOSING_FLUIDS_CRAFT"));*/
+
+            if (em.eats == ModdedIds.providerIds.PROVIDED_PLORT)
+                em.producesId = list2.RandomObject<Identifiable.Id>();
+
+            return true;
+        }
+    }
+    [HarmonyPatch(typeof(SlimeEat), "EatAndProduce")]
+    internal class Patch_EatAndProduce_ProviderNewbuckLargo
+    {
+        // Token: 0x06000036 RID: 54 RVA: 0x00006058 File Offset: 0x00004258
+        private static bool Prefix(SlimeEat __instance, SlimeDiet.EatMapEntry em)
+        {
+
+            bool flag5 = __instance.slimeDefinition.Matches(largoIds.PROVIDER_NEWBUCK_LARGO);
+            if (flag5)
+            {
+                List<Identifiable.Id> list2 = new List<Identifiable.Id>();
+
+                list2.Add(newbuckIds.RICH_NEWBUCK_PLORT);
+                list2.Add(newbuckIds.RICH_NEWBUCK_PLORT);
+                list2.Add(newbuckIds.RICH_NEWBUCK_PLORT);
+                list2.Add(providerIds.PROVIDED_PLORT);
+                list2.Add(providerIds.PROVIDED_PLORT);
+                list2.Add(providerIds.PROVIDED_PLORT);
 
                 em.producesId = list2.RandomObject<Identifiable.Id>();
             }

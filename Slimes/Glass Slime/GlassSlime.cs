@@ -52,36 +52,26 @@ class GlassSlime
         slimeDefinition.Name = "Glass Slime";
         slimeDefinition.IdentifiableId = ModdedIds.glassIds.GLASS_SLIME;
         // OBJECT
-        GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.MOSAIC_SLIME));
+        GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PINK_SLIME));
         slimeObject.name = "slimeGlass";
         slimeObject.GetComponent<PlayWithToys>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeAppearanceApplicator>().SlimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeEat>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<Identifiable>().id = ModdedIds.glassIds.GLASS_SLIME;
         slimeObject.AddComponent<SlimeHover>();
-        UnityEngine.Object.Destroy(slimeObject.GetComponent<MosaicAttractor>());
-        UnityEngine.Object.Destroy(slimeObject.GetComponent<GlintAppearance>());
-        UnityEngine.Object.Destroy(slimeObject.GetComponent<GlintController>());
+        slimeObject.AddComponent<BetterBreakOnImpact>();
         UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
         // APPEARANCE
         SlimeAppearance slimeAppearance = (SlimeAppearance)PrefabUtils.DeepCopyObject(mosaicSlimeDefinition.AppearancesDefault[0]);
         slimeDefinition.AppearancesDefault[0] = slimeAppearance;
-        SlimeAppearanceStructure[] structures = slimeAppearance.Structures;
-        foreach (SlimeAppearanceStructure slimeAppearanceStructure in structures)
-        {
-            Material[] defaultMaterials = slimeAppearanceStructure.DefaultMaterials;
-            if (defaultMaterials != null && defaultMaterials.Length != 0)
-            {
-                Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.MOSAIC_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
-                material.SetColor("_TopColor", new Color32(246, 254, 255, 255));
-                material.SetColor("_MiddleColor", new Color32(255, 255, 255, 255));
-                material.SetColor("_BottomColor", new Color32(246, 254, 255, 255));
-                material.SetColor("_SpecColor", new Color32(255, 255, 255, 255));
-                material.SetFloat("_Shininess", 1f);
-                material.SetFloat("_Gloss", 1f);
-                slimeAppearanceStructure.DefaultMaterials[0] = material;
-            }
-        }
+
+        Material material = UnityEngine.Object.Instantiate(SRSingleton<GameContext>.Instance.SlimeDefinitions.GetSlimeByIdentifiableId(Identifiable.Id.MOSAIC_SLIME).AppearancesDefault[0].Structures[0].DefaultMaterials[0]);
+        material.SetColor("_TopColor", new Color32(246, 254, 255, 255));
+        material.SetColor("_MiddleColor", new Color32(255, 255, 255, 255));
+        material.SetColor("_BottomColor", new Color32(246, 254, 255, 255));
+        material.SetFloat("_Gloss", 0f);
+        slimeAppearance.Structures[0].DefaultMaterials[0] = material;
+
         SlimeExpressionFace[] expressionFaces = slimeAppearance.Face.ExpressionFaces;
         for (int k = 0; k < expressionFaces.Length; k++)
         {
@@ -109,7 +99,8 @@ class GlassSlime
         {
             Top = new Color32(255, 255, 255, 255),
             Middle = new Color32(246, 254, 255, 255),
-            Bottom = new Color32(255, 255, 255, 255)
+            Bottom = new Color32(255, 255, 255, 255),
+            Ammo = new Color32(246, 254, 255, 255)
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.glassIds.GLASS_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Glass.glass_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

@@ -522,10 +522,16 @@ class PreloadPoint
             .SetIntroTranslation("Mangos, Kookadobas, Carrots, Ginger? ..Everywhere!")
             .SetDietTranslation("Plorts")
             .SetFavoriteTranslation("(none)")
-            .SetSlimeologyTranslation("All Hail The Provider Slimes! These slimes that feed other slimes for their plorts, how amazing. Plort goes in, Food comes out. This slime can produce Ginger, Kookadobas, Carrots, Pogofruit, anything imaginable! If you run into one of these, its best you ranch them and collect the food they produce! It could be very useful. They also produce a few special items that can be provided by Material Extractors, like Fertilizer or Material Squeeze! These slimes however are tasteful by Tarrs and will disappear if agitated.")
+            .SetSlimeologyTranslation("All Hail The Provider Slimes! These slimes that feed other slimes for their plorts, how amazing. Plort goes in, Provided Plort comes out. The slime that eats the Provided Plort can produce Ginger, Kookadobas, Carrots, Pogofruit, anything imaginable! If you run into one of these, its best you ranch them and collect the plorts they produce! It could be very useful. The plorts can also make a slime produce a few special items that can be provided by Material Extractors, like Fertilizer or Material Squeeze! These slimes however are tasteful by Tarrs and will disappear if agitated.")
             .SetRisksTranslation("Provider Slimes have no risk, just keep them fed so they won't disappear.")
-            .SetPlortonomicsTranslation("These slimes do not produce plorts, only foods.");
+            .SetPlortonomicsTranslation("The slimes produce plorts that when eaten by any slime, produces food. Some can say the slime used to produce the food, but pfft.. that never happen.. right? :]");
         // END SLIMEPEDIA ENTRY: PROVIDER SLIME
+
+        // PROVIDED PLORT TRANSLATION
+        TranslationPatcher.AddActorTranslation("l." + ModdedIds.providerIds.PROVIDED_PLORT.ToString().ToLower(), "Provided Plort");
+        PediaRegistry.RegisterIdentifiableMapping(PediaDirector.Id.PLORTS, ModdedIds.providerIds.PROVIDED_PLORT);
+        Identifiable.PLORT_CLASS.Add(ModdedIds.providerIds.PROVIDED_PLORT);
+        Identifiable.NON_SLIMES_CLASS.Add(ModdedIds.providerIds.PROVIDED_PLORT);
 
         return;
     }
@@ -891,7 +897,7 @@ class PreloadPoint
         PediaRegistry.RegisterIdEntry(itemIds.MATERIAL_SQUEEZE_ENTRY, CreateSprite(LoadImage("Assets.Items.MaterialSqueeze.squeeze_icon.png")));
         PediaRegistry.SetPediaCategory(itemIds.MATERIAL_SQUEEZE_ENTRY, (PediaRegistry.PediaCategory)2);
         new SlimePediaEntryTranslation(itemIds.MATERIAL_SQUEEZE_ENTRY).SetTitleTranslation("Material Squeeze").SetIntroTranslation("Some people say its squeezed from material slimes..?");
-        TranslationPatcher.AddPediaTranslation("m.resource_type.material_squeeze_entry", "Slime Science Material, Provided by Provider Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.material_squeeze_entry", "Slime Science Material, Provided by Provided Plorts.");
         TranslationPatcher.AddPediaTranslation("m.favored_by.material_squeeze_entry", "All Material Slimes. (Almost)");
         TranslationPatcher.AddPediaTranslation("m.desc.material_squeeze_entry", "Material Squeeze, loved by all Material Slimes! Instant favorite, provided by Provider Slimes & Material Extractors. Some people say it may or may not have been squeezed from material slimes.. is it true?");
         // END SLIMEPEDIA ENTRY: MATERIAL SQUEEZE
@@ -903,7 +909,7 @@ class PreloadPoint
         PediaRegistry.RegisterIdEntry(itemIds.FERTILIZER_ENTRY, CreateSprite(LoadImage("Assets.Items.Fertilizer.fertilizer_icon.png")));
         PediaRegistry.SetPediaCategory(itemIds.FERTILIZER_ENTRY, (PediaRegistry.PediaCategory)2);
         new SlimePediaEntryTranslation(itemIds.FERTILIZER_ENTRY).SetTitleTranslation("Fertilizer").SetIntroTranslation("Soil Slimes love it- A LOT!");
-        TranslationPatcher.AddPediaTranslation("m.resource_type.fertilizer_entry", "Slime Science Material, Provided by Provider Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.fertilizer_entry", "Slime Science Material, Provided by Provided Plorts.");
         TranslationPatcher.AddPediaTranslation("m.favored_by.fertilizer_entry", "Soil Slimes");
         TranslationPatcher.AddPediaTranslation("m.desc.fertilizer_entry", "One bottle of this Fertilizer is sure to make that soil grow! They'll grow into a beautiful..? Oh, they become food! They grow into veggies and fruits, not meat though.");
         // END SLIMEPEDIA ENTRY: FERTILIZER
@@ -950,7 +956,7 @@ class PreloadPoint
         PediaRegistry.RegisterIdEntry(itemIds.SILVER_SHARD_ENTRY, CreateSprite(LoadImage("Assets.Items.SilverShard.shard_icon.png")));
         PediaRegistry.SetPediaCategory(itemIds.SILVER_SHARD_ENTRY, (PediaRegistry.PediaCategory)2);
         new SlimePediaEntryTranslation(itemIds.SILVER_SHARD_ENTRY).SetTitleTranslation("Silver Shard").SetIntroTranslation("Produced by a Silver Slime, now used to largo Silver Slimes.");
-        TranslationPatcher.AddPediaTranslation("m.resource_type.silver_shard_entry", "Slime Science Material, Provided by Provider Slimes.");
+        TranslationPatcher.AddPediaTranslation("m.resource_type.silver_shard_entry", "Slime Science Material, Provided by Provided Plorts.");
         TranslationPatcher.AddPediaTranslation("m.favored_by.silver_shard_entry", "Crystal Slimes.");
         TranslationPatcher.AddPediaTranslation("m.desc.silver_shard_entry", "A Silver Slime has given you a Silver Shard, how generous. These shards could make a 'Silver Crystal Largo' or be used for specific gadgets. Pretty useful if you ask me.");
         // END SLIMEPEDIA ENTRY: SILVER SHARD

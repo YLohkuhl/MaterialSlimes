@@ -37,13 +37,8 @@
     <Reference Include="Assembly-CSharp_old">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\Assembly-CSharp_old.dll</HintPath>
     </Reference>
-    <Reference Include="LargoLibrary">
-      <HintPath>..\..\..\..\Downloads\Largo Library 1.6.7-105-1-6-7-1647997990\LargoLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="SimpleSRmodLibrary">
-      <HintPath>..\..\..\..\Downloads\SimpleSRmodLibrary-220-3-0-1653945318\SimpleSRmodLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="SRML">
+    <Reference Include="SRML, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Slime Rancher\SlimeRancher_Data\Managed\SRML.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -67,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Behaviours\BetterSlimeFlee.cs" />
+    <Compile Include="Behaviours\BetterBreakOnImpact.cs" />
     <Compile Include="Behaviours\BetterSlimeHover.cs" />
     <Compile Include="Behaviours\MaterialDecay.cs" />
     <Compile Include="Gadgets\Discovery3000.cs" />
@@ -86,7 +82,7 @@
     <Compile Include="ModEntryPoint.cs" />
     <Compile Include="Other\GameIDs\ModdedIds.cs" />
     <None Include="Other\SecretStylesDesigns.cs" />
-    <None Include="Other\Config.cs" />
+    <Compile Include="Other\Config.cs" />
     <Compile Include="Other\GameIDs\OtherIds.cs" />
     <Compile Include="Other\Fragments.cs" />
     <Compile Include="Other\LoadPoints\LoadPoint.cs" />
@@ -109,6 +105,7 @@
     <Compile Include="Slimes\Provider Slime\ProviderSlime.cs" />
     <Compile Include="Slimes\Grass Slime\GrassSlime.cs" />
     <Compile Include="Slimes\Grass Slime\GrassSlimePlort.cs" />
+    <Compile Include="Slimes\Provider Slime\ProviderSlimePlort.cs" />
     <Compile Include="Slimes\Silver Slime\SilverSlime.cs" />
     <Compile Include="Slimes\Soil Slime\SoilSlimePlort.cs" />
     <Compile Include="Slimes\Soil Slime\SoilSlime.cs" />

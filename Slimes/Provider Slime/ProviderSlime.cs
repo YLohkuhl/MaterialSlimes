@@ -30,35 +30,31 @@ class ProviderSlime // Slime name here
         slimeDefinition.AppearancesDefault = new SlimeAppearance[1];
         slimeDefinition.Diet.Produces = new Identifiable.Id[1]
         {
-            Identifiable.Id.CARROT_VEGGIE
+            ModdedIds.providerIds.PROVIDED_PLORT
         };
         slimeDefinition.Diet.MajorFoodGroups = new SlimeEat.FoodGroup[1]
         {
             SlimeEat.FoodGroup.PLORTS
         };
-        foreach (Identifiable.Id plortIds in Identifiable.PLORT_CLASS)
+        slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[] // additional foods
         {
-            slimeDefinition.Diet.AdditionalFoods = new Identifiable.Id[] // additional foods
-            {
-                plortIds,
-                ModdedIds.glueIds.GLUE_PLORT,
-                ModdedIds.plasticIds.PLASTIC_PLORT,
-                ModdedIds.glassIds.GLASS_PLORT,
-                ModdedIds.metalIds.METAL_PLORT,
-                ModdedIds.woodIds.WOOD_PLORT,
-                ModdedIds.concreteIds.CONCRETE_PLORT,
-                ModdedIds.cottonIds.COTTON_PLORT,
-                ModdedIds.copperIds.COPPER_PLORT,
-                ModdedIds.iceIds.ICE_PLORT,
-                ModdedIds.newbuckIds.NEWBUCK_PLORT,
-                ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT,
-                ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT,
-                ModdedIds.soilIds.SOIL_PLORT,
-                ModdedIds.soilIds.ACTUAL_ROCK_PLORT,
-                ModdedIds.grassIds.GRASS_PLORT,
-                ModdedIds.grassIds.PLANT_PLORT,
-            };
-        }
+            ModdedIds.glueIds.GLUE_PLORT,
+            ModdedIds.plasticIds.PLASTIC_PLORT,
+            ModdedIds.glassIds.GLASS_PLORT,
+            ModdedIds.metalIds.METAL_PLORT,
+            ModdedIds.woodIds.WOOD_PLORT,
+            ModdedIds.concreteIds.CONCRETE_PLORT,
+            ModdedIds.cottonIds.COTTON_PLORT,
+            ModdedIds.copperIds.COPPER_PLORT,
+            ModdedIds.iceIds.ICE_PLORT,
+            ModdedIds.newbuckIds.NEWBUCK_PLORT,
+            ModdedIds.newbuckIds.RICH_NEWBUCK_PLORT,
+            ModdedIds.newbuckIds.RICHER_NEWBUCK_PLORT,
+            ModdedIds.soilIds.SOIL_PLORT,
+            ModdedIds.soilIds.ACTUAL_ROCK_PLORT,
+            ModdedIds.grassIds.GRASS_PLORT,
+            ModdedIds.grassIds.PLANT_PLORT,
+        };
         slimeDefinition.Diet.Favorites = new Identifiable.Id[0]; // favorites
         slimeDefinition.Diet.EatMap?.Clear(); // don't touch this unless your probably a little more advanced, idk
         // TARR SUPPORT (this is if you want it)
@@ -133,7 +129,8 @@ class ProviderSlime // Slime name here
         {
             Top = ProviderColor,
             Middle = LightProviderColor,
-            Bottom = WhiteColor
+            Bottom = WhiteColor,
+            Ammo = ProviderColor,
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.providerIds.PROVIDER_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Provider.provider_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

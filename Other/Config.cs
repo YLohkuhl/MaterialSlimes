@@ -10,6 +10,6 @@ namespace Configs
     [ConfigFile("config", "MS_SETTINGS")]
     class Values
     {
-        public static readonly bool MATERIAL_LARGOS = true;
+        public static readonly bool OLD_APPEARANCES = false;
     }
 }

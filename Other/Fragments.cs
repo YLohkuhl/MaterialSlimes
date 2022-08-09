@@ -52,7 +52,7 @@ class Fragments
         slimeDefinition.Name = "Fragment Slime";
         slimeDefinition.IdentifiableId = otherIds.FRAGMENT_SLIME;
         // OBJECT
-        GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PINK_SLIME));
+        GameObject slimeObject = PrefabUtils.CopyPrefab(SRSingleton<GameContext>.Instance.LookupDirector.GetPrefab(Identifiable.Id.PUDDLE_SLIME));
         slimeObject.name = "slimeFragment";
         slimeObject.GetComponent<PlayWithToys>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<SlimeAppearanceApplicator>().SlimeDefinition = slimeDefinition;
@@ -60,6 +60,9 @@ class Fragments
         slimeObject.GetComponent<Identifiable>().id = otherIds.FRAGMENT_SLIME;
         slimeObject.AddComponent<PuddleSlimeScoot>();
         slimeObject.AddComponent<MaterialDecay>();
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<GotoWater>());
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<SlimeEatWater>());
+        UnityEngine.Object.Destroy(slimeObject.GetComponent<DestroyOnTouching>());
         UnityEngine.Object.Destroy(slimeObject.GetComponent<FleeThreats>());
         UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
         // APPEARANCE
@@ -110,7 +113,8 @@ class Fragments
         {
             Top = FragmentColor,
             Middle = FragmentColor,
-            Bottom = FragmentColor
+            Bottom = FragmentColor,
+            Ammo = FragmentColor
         };
         PediaRegistry.RegisterIdEntry(otherIds.FRAGMENT_ENTRY, CreateSprite(LoadImage("Assets.Other.Fragment.fragment_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

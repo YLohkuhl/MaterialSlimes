@@ -122,7 +122,8 @@ class GrassSlime // Slime name here
         {
             Top = ColorVar1,
             Middle = ColorVar2,
-            Bottom = ColorVar1
+            Bottom = ColorVar1,
+            Ammo = ColorVar2
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.grassIds.GRASS_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Grass.grass_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

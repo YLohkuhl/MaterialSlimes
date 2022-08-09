@@ -1,5 +1,4 @@
-﻿using SimpleSRmodLibrary;
-using System;
+﻿using System;
 using UnityEngine;
 class MaterialDecay : SlimeSubbehaviour
 {

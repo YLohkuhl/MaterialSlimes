@@ -57,6 +57,7 @@ class IceSlime
         slimeObject.GetComponent<SlimeEat>().slimeDefinition = slimeDefinition;
         slimeObject.GetComponent<Identifiable>().id = ModdedIds.iceIds.ICE_SLIME;
         slimeObject.AddComponent<DamagePlayerOnTouch>();
+        slimeObject.AddComponent<BetterBreakOnImpact>();
         // UnityEngine.Object.Destroy(slimeObject.GetComponent<SlimeEatWater>());
         UnityEngine.Object.Destroy(slimeObject.GetComponent<PinkSlimeFoodTypeTracker>());
         // APPEARANCE
@@ -106,7 +107,8 @@ class IceSlime
         {
             Top = new Color32(165, 242, 243, 255),
             Middle = Color.white,
-            Bottom = new Color32(165, 242, 243, 255)
+            Bottom = new Color32(165, 242, 243, 255),
+            Ammo = new Color32(165, 242, 243, 255)
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.iceIds.ICE_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Ice.ice_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

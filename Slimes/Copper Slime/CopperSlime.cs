@@ -108,7 +108,8 @@ class CopperSlime
         {
             Top = new Color32(134, 70, 43, 255),
             Middle = new Color32(225, 173, 150, 255),
-            Bottom = new Color32(134, 70, 43, 255)
+            Bottom = new Color32(134, 70, 43, 255),
+            Ammo = new Color32(225, 173, 150, 255)
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.copperIds.COPPER_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Copper.copper_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;

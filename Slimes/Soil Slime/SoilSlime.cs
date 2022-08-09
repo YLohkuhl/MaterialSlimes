@@ -124,7 +124,8 @@ class SoilSlime // Slime name here
         {
             Top = ColorVar1,
             Middle = ColorVar2,
-            Bottom = ColorVar1
+            Bottom = ColorVar1,
+            Ammo = ColorVar2
         };
         PediaRegistry.RegisterIdEntry(ModdedIds.soilIds.SOIL_ENTRY, CreateSprite(LoadImage("Assets.Slimes.Soil.soil_slime.png")));
         slimeObject.GetComponent<SlimeAppearanceApplicator>().Appearance = slimeAppearance;
